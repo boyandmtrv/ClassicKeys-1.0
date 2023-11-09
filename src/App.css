@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Encode+Sans:wght@300&family=JetBrains+Mono:wght@300&family=Josefin+Sans&family=Onest&family=Raleway&family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 body .App {
@@ -36,7 +38,7 @@ body .App {
     margin: 1em 1.2em;
     text-decoration: none;
     font-size: 30px;
-    color: #ADD8E6;
+    color: #CBB279;
 }
 
 .nav i::after,
@@ -49,7 +51,7 @@ body .App {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #ADD8E6;
+    background-color: #F5F7F8;
     transform: translateX(-50%);
     transition: width 0.3s ease; 
 }
@@ -70,32 +72,39 @@ body .App {
 .heading h1 {
     font-size: 150px;
     color: #F5F7F8;
-    border-bottom: 1px solid #f5f7f86e;
 }
 
-.heading h1 span {
-    color: #ADD8E6;
+.heading span {
+    color: #CBB279;
 }
 
 .heading p {
     opacity: .9;
     font-size: 20px;
     margin-bottom: 30px;
+    padding-top: 30px;
     margin-top: 30px;
     text-align: center;
     color: #F5F7F8;
 }
 
-.heading button {
-    text-decoration: none;
-    background-color: #ADD8E6;
-    border-radius: 20px;
+.heading li {
     color: #323437;
     padding: 5px;
     font-size: 20px;
-    width: 30%;
-    margin: 0 auto;
+    text-align: center;
     display: block;
+}
+
+.heading li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.heading li a:hover {
+    content: '';
+    color: #CBB279; 
 }
 
 .right {
@@ -119,7 +128,7 @@ body .App {
     position: relative;
     margin: 1em;
     text-decoration: none;
-    color: #ADD8E6;
+    color: #CBB279;
     font-size: 30px;
 }
 

@@ -1,6 +1,13 @@
-const HomeComponent = ({
-    onGame,
-}) => {
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+
+const HomeComponent = () => {
+
+    const [text] = useTypewriter({
+        words: ['Clikie', 'Clikes', '//Clikni'],
+        typeSpeed: 100,
+        deleteSpeed: 100,
+        delaySpeed: 80
+    });
 
     return (
         <>
@@ -9,14 +16,15 @@ const HomeComponent = ({
                     <div className="nav">
                         <i className='bx bx-home'></i>
                         <div className="left-nav">
+                            <a href="/"><i className='bx bxs-keyboard'></i></a>
                             <a href="/"><i className='bx bxs-dashboard' ></i></a>
                             <a href="/"><i className='bx bx-user-check' ></i></a>
                             <a href="/"><i className='bx bx-user-plus' ></i></a>
                         </div>
                         <div className="heading">
-                            <h1>Clikni<span>,</span></h1>
-                            <p>//Test //Compete //Improve</p>
-                            <button>Get Started</button>
+                            <h1>{text} <Cursor /></h1>
+                            {/* <p><span>// </span>Test <span>// </span>Compete <span>//</span> Improve</p> */}
+                            <li><a href="/">/* Start Typing */</a></li>
                         </div>
                     </div>
                 </div>
