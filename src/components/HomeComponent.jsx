@@ -1,4 +1,5 @@
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import styles from './HomeComponent.module.css';
 
 const HomeComponent = () => {
 
@@ -11,25 +12,25 @@ const HomeComponent = () => {
 
     return (
         <>
-            <div className="home">
-                <div className="left">
-                    <div className="nav">
+            <div className={styles.home}>
+                <div className={styles.left}>
+                    <div className={styles.nav}>
                         <i className='bx bx-home'></i>
-                        <div className="left-nav">
+                        <div className={styles.leftNav}>
                             <a href="/"><i className='bx bxs-keyboard'></i></a>
                             <a href="/"><i className='bx bxs-dashboard' ></i></a>
                             <a href="/"><i className='bx bx-user-check' ></i></a>
                             <a href="/"><i className='bx bx-user-plus' ></i></a>
                         </div>
-                        <div className="heading">
+                        <div className={styles.heading}>
                             <h1>{text} <Cursor /></h1>
                             {/* <p><span>// </span>Test <span>// </span>Compete <span>//</span> Improve</p> */}
                             <li><a href="/">/* Start Typing */</a></li>
                         </div>
                     </div>
                 </div>
-                <div className="right">
-                    <div className="right-nav">
+                <div className={styles.right}>
+                    <div className={styles.rightNav}>
                         <a href="/"><i className='bx bxl-github'></i></a>
                         <a href="/"><i className='bx bxl-linkedin' ></i></a>
                     </div>
