@@ -1,9 +1,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import NavComponent from './components/NavComponent';
 import HomeComponent from './components/HomeComponent'
 import LoginComponent from './userComponents/LoginComponent'
 import RegisterComponent from './userComponents/RegisterComponent'
-import NavComponent from './components/NavComponent';
+import GameControllerComponent from './gameComponents/GameControllerComponent'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                 <Route path='/' element={<HomeComponent />}></Route>
                 <Route path='/users/login' element={<LoginComponent />}></Route>
                 <Route path='/users/register' element={<RegisterComponent />}></Route>
+                <Route path='/play' element={<GameControllerComponent />}></Route>
             </Routes>
             {/* <LoginComponent /> */}
             {/* <RegisterComponent/> */}
