@@ -14,19 +14,10 @@ const HomeComponent = () => {
         <>
             <div className={styles.home}>
                 <div className={styles.left}>
-                    <div className={styles.nav}>
-                        <i className='bx bx-home'></i>
-                        <div className={styles.leftNav}>
-                            <a href="/"><i className='bx bxs-keyboard'></i></a>
-                            <a href="/"><i className='bx bxs-dashboard' ></i></a>
-                            <a href="/"><i className='bx bx-user-check' ></i></a>
-                            <a href="/"><i className='bx bx-user-plus' ></i></a>
-                        </div>
-                        <div className={styles.heading}>
-                            <h1>{text} <Cursor /></h1>
-                            {/* <p><span>// </span>Test <span>// </span>Compete <span>//</span> Improve</p> */}
-                            <li><a href="/">/* Start Typing */</a></li>
-                        </div>
+                    <div className={styles.heading}>
+                        <h1>{text} <Cursor /></h1>
+                        {/* <p><span>// </span>Test <span>// </span>Compete <span>//</span> Improve</p> */}
+                        <li><a href="/">/* Start Typing */</a></li>
                     </div>
                 </div>
                 <div className={styles.right}>
