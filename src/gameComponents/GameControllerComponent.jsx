@@ -4,14 +4,18 @@ import { useState } from 'react';
 
 const GameControllerComponent = () => {
 
-    const [gameStatus, setGameStatus] = useState('play');
+    const [gameStatus, setGameStatus] = useState(null);
+
+    const handleGameStatusChange = (status) => {
+        setGameStatus(status)
+    }
 
     let layout;
 
-    if (gameStatus === 'play') {
-        layout = <TestComp />
-    } else {
+    if (gameStatus === 'end') {
         layout = <Test2Comp />
+    } else {
+        layout = <TestComp onGame={handleGameStatusChange} />
     }
 
     return (
