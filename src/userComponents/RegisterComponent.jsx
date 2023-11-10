@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import styles from './LoginRegisterComponent.module.css';
 
-const loginFormState = {
+const registerStateForm = {
+    email: '',
     username: '',
     password: '',
+    repeatPassword: ''
 };
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
 
-    const [loginFormValues, setLoginFormValues] = useState(loginFormState);
+    const [registerFormValues, setRegisterFormValues] = useState(registerStateForm);
 
     const changeHandler = (e) => {
-        setLoginFormValues(state => ({
+        setRegisterFormValues(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
@@ -19,13 +21,13 @@ const LoginComponent = () => {
 
 
     const resetFormHandler = () => {
-        setLoginFormValues(loginFormState)
+        setRegisterFormValues(registerStateForm)
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
 
-        console.log(loginFormValues);
+        console.log(registerFormValues);
 
         resetFormHandler();
     };
@@ -38,13 +40,25 @@ const LoginComponent = () => {
                         <p>Made a mistake? Don't worry. You can</p>
                         <button className={styles.authResetButton} type="button" onClick={resetFormHandler}>Reset form</button>
                     </div>
-                    <h1>Login</h1>
+                    <h1>Register</h1>
+
+                    <div className={styles.authInput}>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            value={registerFormValues.email}
+                            onChange={changeHandler}
+                            placeholder='E-mail'
+                        />
+                        <i className='bx bx-envelope'></i>
+                    </div>
                     <div className={styles.authInput}>
                         <input
                             type="text"
                             name="username"
                             id="username"
-                            value={loginFormValues.username}
+                            value={registerFormValues.username}
                             onChange={changeHandler}
                             placeholder='Username'
                         />
@@ -55,17 +69,28 @@ const LoginComponent = () => {
                             type="password"
                             name="password"
                             id="password"
-                            value={loginFormValues.password}
+                            value={registerFormValues.password}
                             onChange={changeHandler}
                             placeholder='Password'
                         />
                         <i className='bx bx-lock-alt' ></i>
                     </div>
+                    <div className={styles.authInput}>
+                        <input
+                            type="password"
+                            name="repeatPassword"
+                            id="repeatPassword"
+                            value={registerFormValues.repeatPassword}
+                            onChange={changeHandler}
+                            placeholder='Repeat password'
+                        />
+                        <i className='bx bx-key' ></i>
+                    </div>
                     <div>
-                        <button className={styles.authButton} onClick={submitHandler}>Login</button>
+                        <button className={styles.authButton} onClick={submitHandler}>Register</button>
                     </div>
                     <div className={styles.registerInputLink}>
-                        <p>First time using Clikni? You can <a href="/">Register</a> and test it out</p>
+                        <p>Already experinced Clickni? <a href="/">Login</a> and continue the journey</p>
                     </div>
                 </form>
             </div>
@@ -73,4 +98,4 @@ const LoginComponent = () => {
     );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
