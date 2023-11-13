@@ -1,10 +1,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import NavComponent from './components/NavComponent';
-import HomeComponent from './components/HomeComponent'
-import LoginComponent from './userComponents/LoginComponent'
-import RegisterComponent from './userComponents/RegisterComponent'
-import GameControllerComponent from './gameComponents/GameControllerComponent'
+import NavComponent from './components/header/NavComponent';
+import HomeComponent from './components/home/HomeComponent'
+import LoginComponent from './components/user/LoginComponent'
+import RegisterComponent from './components/user/RegisterComponent'
+import GameControllerComponent from './components/game/GameControllerComponent'
 
 function App() {
 
