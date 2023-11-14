@@ -11,7 +11,6 @@ const HomeComponent = () => {
     });
 
     return (
-        <>
             <div className={styles.home}>
                 <div className={styles.left}>
                     <div className={styles.heading}>
@@ -27,7 +26,6 @@ const HomeComponent = () => {
                     </div>
                 </div>
             </div>
-        </>
     )
 }
 

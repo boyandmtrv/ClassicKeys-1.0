@@ -11,7 +11,7 @@ function App() {
     return (
         <div className='App'>
 
-            <NavComponent />
+            {/* <NavComponent /> */}
 
             <Routes>
                 <Route path='/' element={<HomeComponent />}></Route>
