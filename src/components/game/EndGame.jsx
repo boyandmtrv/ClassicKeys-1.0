@@ -1,4 +1,4 @@
-const EndGameContollerComponent =() => {
+const EndGame =() => {
     return(
         <>
             <h1>Hello end</h1>
@@ -14,4 +14,4 @@ const EndGameContollerComponent =() => {
     )
 }
 
-export default EndGameContollerComponent;
+export default EndGame;

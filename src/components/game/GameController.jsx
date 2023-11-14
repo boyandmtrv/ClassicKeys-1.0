@@ -1,5 +1,5 @@
-import EndGameContollerComponent from './EndGameComponentController';
-import PlayGameContollerComponent from './PlayGameControllerComponent';
+import EndGame from './EndGame';
+import StartGame from './StartGame';
 import { useEffect, useState } from 'react';
 
 const GameControllerComponent = () => {
@@ -38,9 +38,9 @@ const GameControllerComponent = () => {
     let layout;
 
     if (gameStatus === 'end') {
-        layout = <EndGameContollerComponent />
+        layout = <EndGame />
     } else if ('playGame') {
-        layout = <PlayGameContollerComponent
+        layout = <StartGame
             onGame={handleGameStatusChange}
             onChangeScore={handleChangeFinalScore}
         />

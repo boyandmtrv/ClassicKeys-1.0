@@ -1,26 +1,26 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import NavComponent from './components/header/NavComponent';
-import HomeComponent from './components/home/HomeComponent'
-import LoginComponent from './components/user/LoginComponent'
-import RegisterComponent from './components/user/RegisterComponent'
-import GameControllerComponent from './components/game/GameControllerComponent'
+import Nav from './components/header/Nav';
+import Home from './components/home/Home'
+import Login from './components/user/Login'
+import Register from './components/user/Register'
+import GameController from './components/game/GameController';
 
 function App() {
 
     return (
         <div className='App'>
 
-            {/* <NavComponent /> */}
+            <Nav/>
 
             <Routes>
-                <Route path='/' element={<HomeComponent />}></Route>
-                <Route path='/users/login' element={<LoginComponent />}></Route>
-                <Route path='/users/register' element={<RegisterComponent />}></Route>
-                <Route path='/play' element={<GameControllerComponent />}></Route>
+                <Route path='/' element={<Home />}></Route>
+                <Route path='/users/login' element={<Login />}></Route>
+                <Route path='/users/register' element={<Register />}></Route>
+                <Route path='/play' element={<GameController />}></Route>
             </Routes>
-            {/* <LoginComponent /> */}
-            {/* <RegisterComponent/> */}
+            {/* <Login /> */}
+            {/* <Register/> */}
         </div>
 
     )
