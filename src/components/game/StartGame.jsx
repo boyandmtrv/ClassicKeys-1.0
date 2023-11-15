@@ -8,6 +8,7 @@ const StartGame = () => {
     const [wordsCount, setWordsCount] = useState([]);
     const [countdown, setCountdown] = useState(wordHelpers.SECONDS);
     const [currentInputValue, setCurrentInputValue] = useState('');
+    const [wordIndex, setWordIndex] = useState(0);
 
     useEffect(() => {
         setWordsCount(generateRandomWords());
@@ -32,12 +33,21 @@ const StartGame = () => {
         }, 1000)
     };
 
-    function handleLetterTyping(e) {
-        console.log(e.key);
-    };
+    function handleLetterTyping({ key }) {
+        if (key === ' ') {
+            checkMatchingWords();
+            setCurrentInputValue('')
+            setWordIndex(wordIndex + 1);
+        }
+    }
+    function checkMatchingWords() {
+        const word = wordsCount[wordIndex];
+        const match = word === currentInputValue.trim();
+        console.log(match);
+    }
 
     function inputLetterTypingValue(e) {
-       setCurrentInput(e.target.value);
+        setCurrentInputValue(e.target.value);
     };
 
 
@@ -63,7 +73,7 @@ const StartGame = () => {
                     <input type="text"
                         className={styles.inputTypeField}
                         onKeyDown={handleLetterTyping}
-                        value={currentInput}
+                        value={currentInputValue}
                         onChange={inputLetterTypingValue}
                     />
                 </div>
