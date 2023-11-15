@@ -1,0 +1,18 @@
+.startGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; 
+}
+
+.playSection {
+    background-color: antiquewhite;
+}
+
+.wordContent {
+    background-color: rgb(0, 255, 255);
+    margin: 0em 7em 0em 7em;
+    justify-content: center;
+    align-items: center;
+}

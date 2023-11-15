@@ -13,12 +13,21 @@ const StartGame = () => {
 
     function generateRandomWords() {
         const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
+
         return words;
     };
 
     return (
-        <div className="startGame">
-            {JSON.stringify(wordsCount)}
+        <div className={styles.startGame}>
+            <div className={styles.playSection}>
+                <div className={styles.wordContent}>
+                    {wordsCount.join(' ').split('').map((word, i) => (
+                        <span className={styles.eachWord}>
+                            {word}
+                        </span>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
