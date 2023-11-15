@@ -4,14 +4,14 @@ import Nav from './components/header/Nav';
 import Home from './components/home/Home'
 import Login from './components/user/Login'
 import Register from './components/user/Register'
-import GameController from './components/game/GameController';
+import GameController from './components/game/gameController';
 
 function App() {
 
     return (
         <div className='App'>
 
-            <Nav/>
+            {/* <Nav/> */}
 
             <Routes>
                 <Route path='/' element={<Home />}></Route>
