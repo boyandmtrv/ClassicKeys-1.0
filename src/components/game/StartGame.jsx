@@ -7,6 +7,7 @@ const StartGame = () => {
 
     const [wordsCount, setWordsCount] = useState([]);
     const [countdown, setCountdown] = useState(wordHelpers.SECONDS);
+    const [currentInputValue, setCurrentInputValue] = useState('');
 
     useEffect(() => {
         setWordsCount(generateRandomWords());
@@ -27,9 +28,18 @@ const StartGame = () => {
                     return lastSecondCount - 1;
                 }
             })
-            
+
         }, 1000)
     };
+
+    function handleLetterTyping(e) {
+        console.log(e.key);
+    };
+
+    function inputLetterTypingValue(e) {
+       setCurrentInput(e.target.value);
+    };
+
 
     return (
         <div className={styles.startGame}>
@@ -38,14 +48,24 @@ const StartGame = () => {
                     <h2>{countdown}</h2>
                 </div>
                 <div className={styles.wordContent}>
-                    {wordsCount.join(' ').split('').map((word, i) => (
-                        <span className={styles.eachWord}>
-                            {word}
+                    {wordsCount.map((word, i) => (
+                        <span key={i}>
+                            <span>
+                                {word.split('').map((letter, index) => (
+                                    <span key={index}>{letter}</span>
+                                ))}
+                            </span>
+                            <span> </span>
                         </span>
                     ))}
                 </div>
                 <div className={styles.inputField}>
-                    <input type="text" className={styles.inputTypeField}/>
+                    <input type="text"
+                        className={styles.inputTypeField}
+                        onKeyDown={handleLetterTyping}
+                        value={currentInput}
+                        onChange={inputLetterTypingValue}
+                    />
                 </div>
                 <div className={styles.button}>
                     <button onClick={startTimerCountdown}>Start</button>
