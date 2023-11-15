@@ -1,56 +1,32 @@
-import EndGame from './EndGame';
+import { useState } from "react";
 import StartGame from './StartGame';
-import { useEffect, useState } from 'react';
+import EndGame from './EndGame';
 
-const GameControllerComponent = () => {
+const GameController = () => {
 
-    const [gameStatus, setGameStatus] = useState(null);
-    const [score, setScore] = useState(null);
+    const [gameStatus, setGameStatus] = useState('play');
 
-    useEffect(() => {
-        if (gameStatus === 'playGame') {
-            setScore({
-                rightWords: 0,
-                wrongWords: 0,
-            })
-        };
-
-    }, [gameStatus]);
-
-    const handleGameStatusChange = (status) => {
-        setGameStatus(status)
+    function handleGameEndStatus() {
+        setGameStatus('end')
     };
 
-    const handleChangeFinalScore = (type) => {
-        if (type === 'right') {
-            setScore({
-                ...score,
-                rightWords: score.rightWords + 1
-            })
-        } else {
-            setScore({
-                ...score,
-                wrongWords: score.wrongWords + 1
-            })
-        }
+    function handleGameRefreshStatus() {
+        setGameStatus('play');
     }
 
     let layout;
 
     if (gameStatus === 'end') {
-        layout = <EndGame />
-    } else if ('playGame') {
-        layout = <StartGame
-            onGame={handleGameStatusChange}
-            onChangeScore={handleChangeFinalScore}
-        />
-    }
+        layout = <EndGame onRefresh={handleGameRefreshStatus} />
+    } else {
+        layout = <StartGame onGameEnd={handleGameEndStatus} />
+    };
 
     return (
-        <>
+        <div className="gamePart">
             {layout}
-        </>
+        </div>
     )
 };
 
-export default GameControllerComponent
+export default GameController;
