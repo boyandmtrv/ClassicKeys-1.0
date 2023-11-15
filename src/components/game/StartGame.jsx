@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { generate } from 'random-words';
 import wordHelpers from '../../utils/wordUtils';
 import styles from './StartGame.module.css';
-import EndGame from "./EndGame";
+import EndGame from "./endGame";
 
 
 const StartGame = () => {
@@ -123,6 +123,7 @@ const StartGame = () => {
                                 <span> </span>
                             </span>
                         ))}
+                         <button className={styles.refreshBtn} onClick={refreshWords}><i className='bx bx-refresh'></i></button>
                         <div className={styles.inputField}>
                             <input
                                 type="text"
@@ -133,7 +134,6 @@ const StartGame = () => {
                                 onChange={inputTypingValue}
                             />
                         </div>
-                        <button onClick={refreshWords}>Refresh</button>
 
                     </div>) : null}
                 {statusGame ? (
