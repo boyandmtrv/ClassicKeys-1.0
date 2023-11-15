@@ -70,7 +70,8 @@ const StartGame = () => {
                     ))}
                 </div>
                 <div className={styles.inputField}>
-                    <input type="text"
+                    <input
+                        type="text"
                         className={styles.inputTypeField}
                         onKeyDown={handleLetterTyping}
                         value={currentInputValue}
