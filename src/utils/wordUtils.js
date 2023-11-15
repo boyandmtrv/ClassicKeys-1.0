@@ -1,5 +1,5 @@
 const wordHelpers = {
-    SECONDS: 60,
+    SECONDS: 4,
     NUMBER_OF_WORDS: 200
 };
 
