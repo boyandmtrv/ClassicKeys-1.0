@@ -14,7 +14,7 @@ const HomeComponent = () => {
             <div className={styles.home}>
                 <div className={styles.left}>
                     <div className={styles.heading}>
-                        <h1>{text} <Cursor /></h1>
+                        <h1 className="text-5xl font-bold text-red-500">{text} <Cursor /></h1>
                         {/* <p><span>// </span>Test <span>// </span>Compete <span>//</span> Improve</p> */}
                         <li><a href="/">/* Start Typing */</a></li>
                     </div>
