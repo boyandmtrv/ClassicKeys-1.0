@@ -1,20 +1,35 @@
-import styles from './NavComponent.module.css';
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from 'lucide-react'
+import NavLinks from "./NavLinks";
 
-const NavComponent = () => {
+const Nav = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsOpen(!isOpen)
+    }
 
     return (
-        <div className={styles.nav}>
-            <Link to='/'><i className='bx bx-home'></i></Link>
-            <div className={styles.leftNav}>
-                <Link to='/play'><i className='bx bxs-keyboard' ></i></Link>
-                <Link to='/'><i className='bx bxs-dashboard' ></i></Link>
-                <Link to='/users/login'><i className='bx bx-user-check'></i></Link>
-                <Link to='/users/register'><i className='bx bx-user-plus' ></i></Link>
-            </div>
-        </div>
+        <>
+            <nav className="w-1/3 flex justify-end"> 
+                <div className="hidden md:flex w-full justify-between text-amber-300 text-2xl">
+                    <NavLinks />
+                </div>
+                <div>
+                    <button className="md:hidden text-amber-300 text-2xl" onClick={toggleNav}>
+                        {isOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
+            </nav>
+            {isOpen && (
+                <div className="flex flex-col items-center basis-full text-amber-300 text-2xl space-y-5">   
+                    <NavLinks />
+                </div>  
+            )}
+        </>
     )
 
 }
 
-export default NavComponent;
+export default Nav;
