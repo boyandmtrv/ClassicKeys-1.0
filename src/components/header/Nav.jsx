@@ -12,18 +12,18 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="w-1/3 flex justify-end"> 
-                <div className="hidden md:flex w-full justify-between text-amber-300 text-2xl">
+            <nav className="w-1/3 flex justify-start relative"> 
+                <div className="hidden md:flex w-full justify-between text-amber-200 text-2xl">
                     <NavLinks />
                 </div>
                 <div>
-                    <button className="md:hidden text-amber-300 text-2xl" onClick={toggleNav}>
+                    <button className="md:hidden text-amber-200 text-2xl" onClick={toggleNav}>
                         {isOpen ? <X /> : <Menu />}
                     </button>
                 </div>
             </nav>
             {isOpen && (
-                <div className="flex flex-col items-center basis-full text-amber-300 text-2xl space-y-5">   
+                <div className="flex flex-col items-center basis-full text-amber-200 text-2xl space-y-5 absolute top-full left-0 right-0  bg-zinc-800">   
                     <NavLinks />
                 </div>  
             )}
