@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './LoginRegisterComponent.module.css';
 
 const loginFormState = {
     username: '',
@@ -31,16 +30,17 @@ const LoginComponent = () => {
     };
 
     return (
-        <div className={styles.authPage}>
-            <div className={styles.authContainer}>
+        <div className="h-[843px] flex justify-center items-center bg-zinc-800">
+            <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10">
                 <form onSubmit={submitHandler}>
-                    <div className={styles.resetContainer}>
-                        <p>Made a mistake? Don't worry. You can</p>
-                        <button className={styles.authResetButton} type="button" onClick={resetFormHandler}>Reset form</button>
+                    <div className="items-center text-[15px] mb-5">
+                        <p className='text-center justify-center'>Made a mistake? Don't worry. You can</p>
+                        <button className="text-amber-200 w-[150px] cursor-pointer ml-[105px] pt-4" type="button" onClick={resetFormHandler}>Reset form</button>
                     </div>
-                    <h1>Login</h1>
-                    <div className={styles.authInput}>
+                    <h1 className='text-[50px] text-center mt-[50px]'>Login</h1>
+                    <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
+                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 border text-base pl-5 pr-10 py-5 rounded-[40px]'
                             type="text"
                             name="username"
                             id="username"
@@ -48,10 +48,11 @@ const LoginComponent = () => {
                             onChange={changeHandler}
                             placeholder='Username'
                         />
-                        <i className='bx bxl-ok-ru'></i>
+                        <i className='bx bxl-ok-ru absolute -translate-x-2/4 text-xl right-5 top-[30%]'></i>
                     </div>
-                    <div className={styles.authInput}>
+                    <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
+                            className='w-full h-full text-[#F5F7F8] border text-base pl-5 pr-10 py-5 rounded-[40px] bg-zinc-800'
                             type="password"
                             name="password"
                             id="password"
@@ -59,17 +60,17 @@ const LoginComponent = () => {
                             onChange={changeHandler}
                             placeholder='Password'
                         />
-                        <i className='bx bx-lock-alt' ></i>
+                        <i className='bx bx-lock-alt absolute -translate-x-2/4 text-xl right-5 top-[30%]' ></i>
                     </div>
                     <div>
-                        <button className={styles.authButton} onClick={submitHandler}>Login</button>
+                        <button className="w-6/12 h-10 border cursor-pointer text-[15px] text-[#fff] ml-[25%] rounded-[40px] border-solid border-amber-200" onClick={submitHandler}>Login</button>
                     </div>
-                    <div className={styles.registerInputLink}>
-                        <p>First time using Clikni? You can <a href="/">Register</a> and test it out</p>
+                    <div className="text-[15px] text-center mt-[50px] mb-[15px] mx-0">
+                        <p>First time using Clikni? You can <a className='text-amber-200 no-underline;' href="/">//Register</a> and test it out</p>
                     </div>
                 </form>
             </div>
-        </div >
+        </div>
     );
 };
 
