@@ -19,6 +19,7 @@ const StartGame = () => {
     const [currChar, setCurrChar] = useState('')
 
     const textInput = useRef(null);
+    const intervalRef = useRef();
 
 
     useEffect(() => {
@@ -37,6 +38,10 @@ const StartGame = () => {
         }
     }, [statusGame]);
 
+    useEffect(() => {
+        return () => clearInterval(intervalRef.current);
+      }, []);
+
 
     function generateRandomWords() {
         const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
@@ -45,18 +50,18 @@ const StartGame = () => {
     };
 
     function startTimerCountdown() {
-        let interval = setInterval(() => {
-            setCountdown((lastSecondCount) => {
-                if (lastSecondCount === 0) {
-                    clearInterval(interval);
-                } else {
-                    return lastSecondCount - 1;
-                }
-            })
+        intervalRef.current = setInterval(() => {
+          setCountdown((lastSecondCount) => {
+            if (lastSecondCount === 0) {
+              clearInterval(intervalRef.current);
+            } else {
+              return lastSecondCount - 1;
+            }
+          });
+        }, 1000);
+      };
 
-        }, 1000)
-    };
-
+      
     function handleLetterTyping({ keyCode, key }) {
         if (keyCode === 32) {
             checkMatchingWords();
@@ -92,40 +97,45 @@ const StartGame = () => {
     };
 
     function getCharClass(wordIdx, charIndex, char) {
+    
         
         if (wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame) {
             if (char === currChar) {
-                return 'text-zinc-800 border-r-2 border-amber-200'
+                return ' border-r-2 border-amber-200 text-neutral-100'
             } else {
-                return 'bg-red-200'
+                return 'text-red-500'
             }
-        } else if (wordIdx === wordIndex && currCharIndex >= wordsCount[wordIndex].length) {
-            return 'bg-red-200'
+        } else if (wordIdx === wordIndex && currCharIndex > wordsCount[wordIndex].length) {
+            return 'bg-red-300'
         } else {
             return '';
         }
     }
 
-    function refreshWords() {
-        setWordsCount(generateRandomWords());
-        setCountdown(wordHelpers.SECONDS);
-        setCurrentInputValue('');
-        setWordIndex(0);
-        setCorrectWord(0);
-        setIncorrectWord(0);
-        setStatusGame(false);
-        setInputFocused(false);
-    }
+function refreshWords() {
+    setWordsCount(generateRandomWords());
+    clearInterval(intervalRef.current); // Clear the interval
 
-    function retakeTest() {
-        setCountdown(wordHelpers.SECONDS);
-        setCurrentInputValue('');
-        setWordIndex(0);
-        setCorrectWord(0);
-        setIncorrectWord(0);
-        setStatusGame(false);
-        setInputFocused(false);
-    }
+    setCountdown(wordHelpers.SECONDS);
+    setCurrentInputValue('');
+    setWordIndex(0);
+    setCorrectWord(0);
+    setIncorrectWord(0);
+    setStatusGame(false);
+    setInputFocused(false);
+}
+
+function retakeTest() {
+    setCountdown(wordHelpers.SECONDS);
+    clearInterval(intervalRef.current); // Clear the interval
+
+    setCurrentInputValue('');
+    setWordIndex(0);
+    setCorrectWord(0);
+    setIncorrectWord(0);
+    setStatusGame(false);
+    setInputFocused(false);
+}
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-zinc-800">
@@ -137,7 +147,7 @@ const StartGame = () => {
 
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
-                    <div className="text-white text-2xl text-justify leading-2 line-clamp-3">
+                    <div className="text-gray-500 text-2xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {wordsCount.map((word, i) => (
                                 <span key={i}>
