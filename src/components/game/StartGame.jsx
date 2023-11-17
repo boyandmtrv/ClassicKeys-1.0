@@ -15,6 +15,8 @@ const StartGame = () => {
     const [incorrentWord, setIncorrectWord] = useState(0);
     const [statusGame, setStatusGame] = useState(false);
     const [inputFocused, setInputFocused] = useState(false);
+    const [currCharIndex, setCurrCharIndex] = useState(-1);
+    const [currChar, setCurrChar] = useState('')
 
     const textInput = useRef(null);
 
@@ -55,12 +57,19 @@ const StartGame = () => {
         }, 1000)
     };
 
-    function handleLetterTyping({ key }) {
-        if (key === ' ') {
+    function handleLetterTyping({ keyCode, key }) {
+        if (keyCode === 32) {
             checkMatchingWords();
             setCurrentInputValue('')
             setWordIndex(wordIndex + 1);
-        }
+            setCurrCharIndex(-1);
+        } else if (keyCode === 8) {
+            setCurrCharIndex(currCharIndex - 1);
+            setCurrChar('')
+        } else {
+            setCurrCharIndex(currCharIndex + 1);
+            setCurrChar(key);
+        };
     }
     function checkMatchingWords() {
         const word = wordsCount[wordIndex];
@@ -81,6 +90,21 @@ const StartGame = () => {
 
         setCurrentInputValue(e.target.value);
     };
+
+    function getCharClass(wordIdx, charIndex, char) {
+        
+        if (wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame) {
+            if (char === currChar) {
+                return 'text-zinc-800 border-r-2 border-amber-200'
+            } else {
+                return 'bg-red-200'
+            }
+        } else if (wordIdx === wordIndex && currCharIndex >= wordsCount[wordIndex].length) {
+            return 'bg-red-200'
+        } else {
+            return '';
+        }
+    }
 
     function refreshWords() {
         setWordsCount(generateRandomWords());
@@ -119,7 +143,7 @@ const StartGame = () => {
                                 <span key={i}>
                                     <span className="">
                                         {word.split('').map((letter, index) => (
-                                            <span key={index}>{letter}</span>
+                                            <span className={getCharClass(i, index, letter)} key={index}>{letter}</span>
                                         ))}
                                     </span>
                                     <span> </span>
