@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { generate } from 'random-words';
 import wordHelpers from '../../utils/wordUtils';
-import styles from './StartGame.module.css';
 import EndGame from "./endGame";
 
 
@@ -61,7 +60,7 @@ const StartGame = () => {
         }, 1000);
       };
 
-      
+
     function handleLetterTyping({ keyCode, key }) {
         if (keyCode === 32) {
             checkMatchingWords();
@@ -101,11 +100,11 @@ const StartGame = () => {
         
         if (wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame) {
             if (char === currChar) {
-                return ' border-r-2 border-amber-200 text-neutral-100'
+                return 'border-r-2 border-amber-200 text-neutral-100'
             } else {
                 return 'text-red-500'
             }
-        } else if (wordIdx === wordIndex && currCharIndex > wordsCount[wordIndex].length) {
+        } else if (wordIdx === wordIndex && currCharIndex >= wordsCount[wordIndex].length) {
             return 'bg-red-300'
         } else {
             return '';
@@ -114,7 +113,7 @@ const StartGame = () => {
 
 function refreshWords() {
     setWordsCount(generateRandomWords());
-    clearInterval(intervalRef.current); // Clear the interval
+    clearInterval(intervalRef.current); 
 
     setCountdown(wordHelpers.SECONDS);
     setCurrentInputValue('');
@@ -127,7 +126,7 @@ function refreshWords() {
 
 function retakeTest() {
     setCountdown(wordHelpers.SECONDS);
-    clearInterval(intervalRef.current); // Clear the interval
+    clearInterval(intervalRef.current); 
 
     setCurrentInputValue('');
     setWordIndex(0);
