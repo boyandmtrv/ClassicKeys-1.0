@@ -18,6 +18,8 @@ function App() {
                 <Route path='/users/register' element={<Register />}></Route>
                 <Route path='/play' element={<GameController />}></Route>
             </Routes>
+            {/* <Login /> */}
+            {/* <Register/> */}
         </div>
 
     )

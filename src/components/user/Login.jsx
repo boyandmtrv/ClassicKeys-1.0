@@ -30,7 +30,7 @@ const LoginComponent = () => {
     };
 
     return (
-        <div className="h-[843px] flex justify-center items-center bg-zinc-800">
+        <div className="w-full h-screen flex justify-center items-center bg-zinc-800">
             <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10">
                 <form onSubmit={submitHandler}>
                     <div className="items-center text-[15px] mb-5">

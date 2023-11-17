@@ -74,10 +74,12 @@ const StartGame = () => {
             setCurrCharIndex(currCharIndex + 1);
             setCurrChar(key);
         };
-    }
+    };
+
     function checkMatchingWords() {
         const word = wordsCount[wordIndex];
         const match = word === currentInputValue.trim();
+
         if (match) {
             setCorrectWord(correctWord + 1);
         } else {
@@ -97,8 +99,10 @@ const StartGame = () => {
 
     function getCharClass(wordIdx, charIndex, char) {
     
-        
-        if (wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame) {
+        const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
+
+        if (correctWord) {
+            
             if (char === currChar) {
                 return 'border-r-2 border-amber-200 text-neutral-100'
             } else {
@@ -108,7 +112,8 @@ const StartGame = () => {
             return 'bg-red-300'
         } else {
             return '';
-        }
+        };
+
     }
 
 function refreshWords() {
@@ -170,7 +175,7 @@ function retakeTest() {
                             <input
                                 type="text"
                                 ref={textInput}
-                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-zinc-800 text-neutral-200 border-b-2 border-ra"
+                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-zinc-800 text-zinc-200 border-b-2 border-ra"
                                 onKeyDown={handleLetterTyping}
                                 value={currentInputValue}
                                 onChange={inputTypingValue}
