@@ -104,38 +104,48 @@ const StartGame = () => {
     }
 
     return (
-        <div className={styles.startGame}>
-            <div className={styles.playSection}>
+        <div className="flex flex-col items-center justify-center h-screen bg-zinc-800">
+            {!statusGame ? (
+                <div className=" mt-[-120px] text-center p-5 text-5xl text-amber-200">
+                    <h2>{countdown}</h2>
+                </div>
+            ) : null}
+
+            <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
-                    <div className={styles.timerCount}>
-                        <h2>{countdown}</h2>
+                    <div className="text-white text-2xl text-justify leading-2 line-clamp-3">
+                        <div className="">
+                            {wordsCount.map((word, i) => (
+                                <span key={i}>
+                                    <span className="">
+                                        {word.split('').map((letter, index) => (
+                                            <span key={index}>{letter}</span>
+                                        ))}
+                                    </span>
+                                    <span> </span>
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 ) : null}
                 {!statusGame ? (
-                    <div className={styles.wordContent}>
-                        {wordsCount.map((word, i) => (
-                            <span key={i}>
-                                <span>
-                                    {word.split('').map((letter, index) => (
-                                        <span key={index}>{letter}</span>
-                                    ))}
-                                </span>
-                                <span> </span>
-                            </span>
-                        ))}
-                         <button className={styles.refreshBtn} onClick={refreshWords}><i className='bx bx-refresh'></i></button>
-                        <div className={styles.inputField}>
+                    <div className="mt-4">
+                        <button className="px-4 py-2" onClick={refreshWords}>
+                            <i className='bx bx-refresh text-5xl text-amber-200 mt-5'></i>
+                        </button>
+                        <div className="mt-5">
                             <input
                                 type="text"
                                 ref={textInput}
-                                className={styles.inputTypeField}
+                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-zinc-800 text-neutral-200 border-b-2 border-ra"
                                 onKeyDown={handleLetterTyping}
                                 value={currentInputValue}
                                 onChange={inputTypingValue}
                             />
                         </div>
+                    </div>
+                ) : null}
 
-                    </div>) : null}
                 {statusGame ? (
                     <EndGame
                         correctWord={correctWord}
@@ -146,7 +156,8 @@ const StartGame = () => {
                 ) : null}
             </div>
         </div>
-    )
+    );
+
 }
 
 export default StartGame;
