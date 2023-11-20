@@ -97,7 +97,7 @@ const StartGame = () => {
         setCurrentInputValue(e.target.value);
     };
 
-    function getCharClass(wordIdx, charIndex, char) {
+    function getCharClass(word, wordIdx, charIndex, char) {
     
         const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
 
@@ -113,8 +113,7 @@ const StartGame = () => {
         } else {
             return '';
         };
-
-    }
+    };
 
 function refreshWords() {
     setWordsCount(generateRandomWords());
@@ -157,7 +156,7 @@ function retakeTest() {
                                 <span key={i}>
                                     <span className="">
                                         {word.split('').map((letter, index) => (
-                                            <span className={getCharClass(i, index, letter)} key={index}>{letter}</span>
+                                            <span className={getCharClass(word, i, index, letter)} key={index}>{letter}</span>
                                         ))}
                                     </span>
                                     <span> </span>

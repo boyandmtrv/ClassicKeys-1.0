@@ -1,5 +1,6 @@
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
+import { Cross } from 'lucide-react';
 
 const HomeComponent = () => {
 
@@ -32,5 +33,3 @@ const HomeComponent = () => {
 
 export default HomeComponent;
 
-
-<button class="border-2 border-black rounded-md border-b-4 border-l-4 font-black px-2 focus:bg-gray-300">15</button>
