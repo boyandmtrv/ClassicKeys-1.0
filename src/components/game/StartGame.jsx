@@ -142,16 +142,16 @@ function retakeTest() {
 }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-zinc-800">
+        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
             {!statusGame ? (
-                <div className=" mt-[-120px] text-center p-5 text-5xl text-[#D1D0C5]">
+                <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
 
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
-                    <div className="text-gray-500 text-2xl text-justify leading-2 line-clamp-3">
+                    <div className="text-gray-500 text-4xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {wordsCount.map((word, i) => (
                                 <span key={i}>

@@ -6,7 +6,7 @@ const EndGame = ({
 }) => {
     return (
         <div className="flex flex-col items-center w-full h-full">
-            <div className="flex space-x-10 mb-4 mt-[-200px]" >
+            <div className="flex space-x-10 mb-4" >
                 <div className="w-72 h-72 border-4 border-amber-300 rounded-full flex flex-col items-center justify-center text-white text-2xl">
                     <p>Correct Words:</p>
                     <p>{correctWord}</p>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from 'lucide-react'
+import { ArrowBigDownDash, ArrowBigUpDash } from 'lucide-react'
 import NavLinks from "./NavLinks";
 
 const Nav = () => {
@@ -11,23 +11,19 @@ const Nav = () => {
     }
 
     return (
-        <>
-            <nav className="w-1/3 flex justify-start relative"> 
-                <div className="hidden md:flex w-full justify-between text-amber-200 text-2xl">
-                    <NavLinks />
-                </div>
-                <div>
-                    <button className="md:hidden text-amber-200 text-2xl" onClick={toggleNav}>
-                        {isOpen ? <X /> : <Menu />}
-                    </button>
-                </div>
-            </nav>
+
+        <nav className="w-16 h-16 text-center flex justify-center items-center border-2 border-black rounded-md border-b-4 border-l-4 relative">
+            <div>
+                <button className=" text-[#D1D0C5] " onClick={toggleNav}>
+                    {isOpen ? <ArrowBigUpDash className="w-[40px] h-[40px]" /> : <ArrowBigDownDash className="w-[40px] h-[40px]" />}
+                </button>
+            </div>
             {isOpen && (
-                <div className="flex flex-col items-center basis-full text-amber-200 text-2xl space-y-5 absolute top-full left-0 right-0  bg-zinc-800">   
+                <div className="flex flex-col items-center mt-[150px] basis-full text-amber-200 text-2xl space-y-5 absolute top-full  bg-zinc-800">
                     <NavLinks />
-                </div>  
+                </div>
             )}
-        </>
+        </nav>
     )
 
 }

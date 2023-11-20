@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Encode+Sans:wght@300&family=JetBrains+Mono:wght@300&family=Josefin+Sans&family=Onest&family=Raleway&family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Roboto&family=VT323&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'VT323', monospace;
 }
 
 body .App {
