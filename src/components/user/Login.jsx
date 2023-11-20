@@ -35,7 +35,7 @@ const LoginComponent = () => {
                 <form onSubmit={submitHandler}>
                     <div className="items-center text-[15px] mb-5">
                         <p className='text-center justify-center'>Made a mistake? Don't worry. You can</p>
-                        <button className="text-amber-200 w-[150px] cursor-pointer ml-[105px] pt-4" type="button" onClick={resetFormHandler}>Reset form</button>
+                        <button className="text-[#D1D0C5] w-[150px] cursor-pointer ml-[105px] pt-4" type="button" onClick={resetFormHandler}>Reset form</button>
                     </div>
                     <h1 className='text-[50px] text-center mt-[50px]'>Login</h1>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
@@ -63,7 +63,7 @@ const LoginComponent = () => {
                         <i className='bx bx-lock-alt absolute -translate-x-2/4 text-xl right-5 top-[30%]' ></i>
                     </div>
                     <div>
-                        <button className="w-6/12 h-10 border cursor-pointer text-[15px] text-[#fff] ml-[25%] rounded-[40px] border-solid border-amber-200" onClick={submitHandler}>Login</button>
+                        <button className="w-6/12 h-10 border cursor-pointer text-[15px] text-[#fff] ml-[25%] rounded-[40px] border-solid border-[#D1D0C5]" onClick={submitHandler}>Login</button>
                     </div>
                     <div className="text-[15px] text-center mt-[50px] mb-[15px] mx-0">
                         <p>First time using Clikni? You can <a className='text-amber-200 no-underline;' href="/">//Register</a> and test it out</p>

@@ -144,7 +144,7 @@ function retakeTest() {
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-zinc-800">
             {!statusGame ? (
-                <div className=" mt-[-120px] text-center p-5 text-5xl text-amber-200">
+                <div className=" mt-[-120px] text-center p-5 text-5xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
@@ -169,7 +169,7 @@ function retakeTest() {
                 {!statusGame ? (
                     <div className="mt-4">
                         <button className="px-4 py-2" onClick={refreshWords}>
-                            <i className='bx bx-refresh text-5xl text-amber-200 mt-5'></i>
+                            <i className='bx bx-refresh text-5xl text-[#D1D0C5] mt-5'></i>
                         </button>
                         <div className="mt-5">
                             <input
