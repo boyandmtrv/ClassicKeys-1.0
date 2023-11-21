@@ -13,7 +13,7 @@ const NavLinks = () => {
                 <i className='bx bxs-keyboard'></i>
             </Link>
             <Link to='/create' className={linkStyle}>
-                <i class='bx bxs-plus-circle'></i>
+                <i className='bx bxs-plus-circle'></i>
             </Link>
             <Link to='/edit' className={linkStyle}>
                 <i className='bx bxs-edit-alt'></i>
