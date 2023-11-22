@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { generate } from 'random-words'
+import * as gameService from "../../services/gameService";
+import wordHelpers from '../../utils/wordUtils';
 
 const Create = () => {
+    
+    const navigate = useNavigate();
 
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
@@ -13,13 +19,29 @@ const Create = () => {
         setSelectedTime(time === selectedTime ? null : time);
     };
 
-    const createGameSubmitHandler = (e) => {
+    const createGameSubmitHandler = async (e) => {
+
         e.preventDefault();
 
         const gameData = Object.fromEntries(new FormData(e.currentTarget));
-        console.log(gameData);
 
-    }
+        try {
+            await gameService.create(gameData)
+
+            navigate('/games')
+        } catch (err) {
+            console.log(err);
+        };
+
+    };
+
+    function generateRandomWords() {
+        const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
+        const sentence = words.join(' ');
+
+        document.getElementById('userText').value = sentence;
+        return words;
+    };
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
@@ -37,7 +59,7 @@ const Create = () => {
                             placeholder="Type your words here"
                         />
                     </div>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]">Generate random sentence</button>
+                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]" onClick={generateRandomWords}>Generate random sentence</button>
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
@@ -67,9 +89,8 @@ const Create = () => {
 
                     </div>
                     <p className="mt-7">Time:</p>
-
                     <div className="text-black text-2xl font-normal justify-center flex gap gap-2 pt-2">
-                    
+
                         <select
                             className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 ${selectedTime ? 'bg-amber-400 text-black' : ''}`}
                             id="time"

@@ -1,10 +1,9 @@
 {
-    "4864abf5-ddc2-4e2e-9243-14c8f1ed202c": {
-        "title": "Test game",
-        "category": "Fantasy",
-        "maxLevel": "112",
-        "imageUrl": "https://cdn.akamai.steamstatic.com/steam/apps/552700/extras/MainCapsule_616x353.png?t=1673947787",
-        "summary": "Fantasy game",
-        "_id": "4864abf5-ddc2-4e2e-9243-14c8f1ed202c"
+    "a71d8ade-3f86-4f87-92fe-4d592efa4493": {
+        "difficulty": "medium",
+        "time": "30",
+        "title": "Test Game",
+        "userText": "random words stored here in this input field for text next time to be used for the user",
+        "_id": "a71d8ade-3f86-4f87-92fe-4d592efa4493"
     }
-}
+}   
