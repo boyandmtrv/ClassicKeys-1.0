@@ -40,8 +40,13 @@ const Create = () => {
         const sentence = words.join(' ');
 
         document.getElementById('userText').value = sentence;
-        return words;
     };
+
+    function onClick(e) {
+        e.preventDefault();
+
+        generateRandomWords();
+    }
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
@@ -59,7 +64,7 @@ const Create = () => {
                             placeholder="Type your words here"
                         />
                     </div>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]" onClick={generateRandomWords}>Generate random sentence</button>
+                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]" onClick={onClick}>Generate random sentence</button>
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
