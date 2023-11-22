@@ -12,21 +12,25 @@ const NavLinks = () => {
             <Link to='/play' className={linkStyle}>
                 <i className='bx bxs-keyboard'></i>
             </Link>
-            <Link to='/create' className={linkStyle}>
-                <i className='bx bxs-plus-circle'></i>
-            </Link>
-            <Link to='/edit' className={linkStyle}>
-                <i className='bx bxs-edit-alt'></i>
-            </Link>
-            <Link to='/' className={linkStyle}>
+            <Link to='/games' className={linkStyle}>
                 <i className='bx bxs-dashboard'></i>
             </Link>
-            <Link to='/users/login' className={linkStyle}>
-                <i className='bx bx-user-check'></i>
-            </Link>
-            <Link to='/users/register' className={linkStyle}>
-                <i className='bx bx-user-plus'></i>
-            </Link>
+            <div className="auth-user">
+                <Link to='/games/create' className={linkStyle}>
+                    <i className='bx bxs-plus-circle'></i>
+                </Link>
+                <Link to='/games/edit' className={`${linkStyle} mt-5`}>
+                    <i className='bx bxs-edit-alt'></i>
+                </Link>
+            </div>
+            <div className="guest-user">
+                <Link to='/users/login' className={linkStyle}>
+                    <i className='bx bx-user-check'></i>
+                </Link>
+                <Link to='/users/register' className={`${linkStyle} mt-5`}>
+                    <i className='bx bx-user-plus'></i>
+                </Link>
+            </div>
         </>
     );
 };

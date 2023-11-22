@@ -15,7 +15,7 @@ const Create = () => {
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
-            <div className="bg-zinc-700 rounded-2xl shadow-2xl flex w-2/3 max-w-5xl">
+            <div className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8">
                 <div className="w-3/5 p-10">
                     <div className="text-left font-bold text-5xl text-white">
                         <span className="text-[#D1D0C5]">Create</span> your game
@@ -26,7 +26,7 @@ const Create = () => {
                     </div>
                     <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]">Generate random sentence</button>
                 </div>
-                <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] rounded-tr-2xl rounded-br-2xl py-24 px-12">
+                <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
                         <span className="text-white">Specify</span> the game
                     </div>
@@ -83,7 +83,8 @@ const Create = () => {
                         </button>
                     </div>
                     <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
-                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Create</button>
+                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 text-[#D1D0C5]">Create 
+                        </button>
                         <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Cancel</button>
                     </div>
 
