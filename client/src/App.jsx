@@ -1,6 +1,8 @@
 import './App.css';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
+
 import Home from './components/home/Home'
 import Login from './components/user/Login'
 import Register from './components/user/Register'
@@ -11,6 +13,12 @@ import AllGames from './components/all-games/AllGames';
 import GameDetails from './components/game-details/GameDetails';
 
 function App() {
+
+    const [authData, setAuthData] = useState({});
+
+    const loginHandler = (values) => {
+        console.log(values);
+    };
 
     return (
         <div className='App bg-zinc-800'>
@@ -23,15 +31,12 @@ function App() {
                 <Route path='/games/create' element={<Create />}></Route>
                 <Route path='/games/:id/details' element={<GameDetails />}></Route>
                 <Route path='/games/edit' element={<Edit />}></Route>
-                <Route path='/users/login' element={<Login />}></Route>
+                <Route path='/users/login' element={<Login loginHandler={loginHandler} />}></Route>
                 <Route path='/users/register' element={<Register />}></Route>
             </Routes>
-
-            {/* <Login /> */}
-            {/* <Register/> */}
-        </div>
-
+       </div>
     )
 }
 
 export default App
+

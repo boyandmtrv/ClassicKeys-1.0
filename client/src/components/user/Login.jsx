@@ -1,29 +1,33 @@
 import { useState } from 'react';
 import useForm from '../../hooks/useForm';
 
-const LoginComponent = () => {
+const LoginFormKeys = {
+    Email: 'email',
+    Password: 'password',
+};
 
-    const { values, onChangeHandler, onSubmitHandler } = useForm({
-        email: '',
-        password: '',
+const LoginComponent = ({
+    loginHandler
+}) => {
+
+    const { values, onChangeHandler, onSubmitHandler } = useForm(loginHandler, {
+        [LoginFormKeys.Email]: '',
+        [LoginFormKeys.Password]: '',
     });
+
 
     return (
         <div className="w-full h-screen mt-[-112px] flex justify-center items-center bg-zinc-800">
             <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10">
                 <form onSubmit={onSubmitHandler}>
-                    <div className="items-center text-[15px] mb-5">
-                        <p className='text-center justify-center'>Made a mistake? Don't worry. You can</p>
-                        <button className="text-[#D1D0C5] w-[150px] cursor-pointer ml-[105px] pt-4" type="button" onClick={resetFormHandler}>Reset form</button>
-                    </div>
                     <h1 className='text-[50px] text-center mt-[50px]'>Login</h1>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
                             className='w-full h-full text-[#F5F7F8] bg-zinc-800 border text-base pl-5 pr-10 py-5 rounded-[40px]'
-                            type="text"
-                            name="email"
+                            type="email"
+                            name={LoginFormKeys.Email}
                             id="email"
-                            value={values.email}
+                            value={values[LoginFormKeys.Email]}
                             onChange={onChangeHandler}
                             placeholder='Email'
                         />
@@ -33,9 +37,9 @@ const LoginComponent = () => {
                         <input
                             className='w-full h-full text-[#F5F7F8] border text-base pl-5 pr-10 py-5 rounded-[40px] bg-zinc-800'
                             type="password"
-                            name="password"
+                            name={LoginFormKeys.Password}
                             id="password"
-                            value={values.password}
+                            value={values[LoginFormKeys.Password]}
                             onChange={onChangeHandler}
                             placeholder='Password'
                         />
