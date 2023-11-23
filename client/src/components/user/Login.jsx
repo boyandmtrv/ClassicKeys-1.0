@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
+
 
 const LoginFormKeys = {
     Email: 'email',
@@ -49,7 +51,7 @@ const LoginComponent = () => {
                         <button className="w-6/12 h-10 border cursor-pointer text-[15px] text-[#fff] ml-[25%] rounded-[40px] border-solid border-[#D1D0C5]" onClick={onSubmitHandler}>Login</button>
                     </div>
                     <div className="text-[15px] text-center mt-[50px] mb-[15px] mx-0">
-                        <p>First time using Clikni? You can <a className='text-amber-200 no-underline;' href="/">//Register</a> and test it out</p>
+                        <p>First time using Clikni? You can<Link to='/users/register' className='text-amber-200 no-underline'> //Sign up</Link>  and test it out</p>
                     </div>
                 </form>
             </div>

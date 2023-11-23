@@ -31,8 +31,21 @@ function App() {
         
     };
 
+    const registerHandler = async (values) => {
+        console.log(values);        
+    };
+
+
+    const values = {
+        loginHandler,
+        registerHandler,
+        username: authData.username,
+        email: authData.email,
+        isAuth: !!authData.username
+    };
+
     return (
-        <AuthContext.Provider value={{ loginHandler }}>
+        <AuthContext.Provider value={values}>
             <div className='App bg-zinc-800'>
                 <Header />
 
