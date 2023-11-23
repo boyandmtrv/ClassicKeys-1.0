@@ -24,7 +24,7 @@ const NavLinks = () => {
                     <Link to='/play' className={linkStyle}>
                         <i className='bx bxs-keyboard'></i>
                     </Link>
-                    <Link to='/games/create' className={linkStyle}>
+                    <Link to='/games/create' className={`${linkStyle} mt-5`}>
                         <i className='bx bxs-plus-circle'></i>
                     </Link>
                     <Link to='/games/edit' className={`${linkStyle} mt-5`}>
