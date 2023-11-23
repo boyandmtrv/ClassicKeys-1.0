@@ -22,8 +22,6 @@ const EachGame = ({
                 Game Creator: Username
             </p>
 
-            <Link to={`/games/id/details`} className="bg-amber-300 text-black font-semibold py-1 px-4 text-2xl mt-7 inline-flex items-center group border-2 border-black rounded-md border-b-4 border-l-4">Play</Link>
-
             <Link to={`/games/${_id}/details`} className="bg-amber-300 text-black font-semibold py-1 px-4 text-2xl mt-7 ml-5 inline-flex items-center group border-2 border-black rounded-md border-b-4 border-l-4 ">Check details</Link>
         </div>
     );

@@ -26,7 +26,7 @@ const GameDetails = () => {
                     </div>
 
                     <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
-                    
+
 
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
@@ -47,10 +47,10 @@ const GameDetails = () => {
 
                     </div>
                     {/* <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]" type="submit" value="Create Game"><span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Create</span>
-                    </button>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Cancel</button>
-                </div> */}
+                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]" type="submit" value="Create Game"><span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Play</span>
+                        </button>
+                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Cancel</button>
+                    </div> */}
 
                 </div>
             </form >
