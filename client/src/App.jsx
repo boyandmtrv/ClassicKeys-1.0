@@ -16,32 +16,54 @@ import Edit from './components/edit/Edit';
 import AllGames from './components/all-games/AllGames';
 import GameDetails from './components/game-details/GameDetails';
 import Welcome from './components/home/Welcome';
+import Logout from './components/user/Logout';
 
 
 function App() {
     const navigate = useNavigate();
-    const [authData, setAuthData] = useState({});
+    const [authData, setAuthData] = useState(() => {
+        localStorage.removeItem('accessToken');
+
+        return {};
+    });
 
     const loginHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 
         setAuthData(result);
 
+        localStorage.setItem('accessToken', result.accessToken);
+
         navigate(Paths.Welcome)
         
     };
 
     const registerHandler = async (values) => {
-        console.log(values);        
+        const result = await authService.register(values.email, values.username, values.password);
+
+        setAuthData(result);
+
+        localStorage.setItem('accessToken', result.accessToken);
+
+        navigate(Paths.Welcome)      
+    };
+
+    const logoutHandler = () => {
+        setAuthData({});
+
+        localStorage.removeItem('accessToken');
+
+        navigate(Paths.Home)
     };
 
 
     const values = {
         loginHandler,
         registerHandler,
-        username: authData.username,
+        logoutHandler,
+        username: authData.username || authData.email,
         email: authData.email,
-        isAuth: !!authData.username
+        isAuth: !!authData.accessToken
     };
 
     return (
@@ -59,6 +81,7 @@ function App() {
                     <Route path='/games/edit' element={<Edit />}></Route>
                     <Route path='/users/login' element={<Login />}></Route>
                     <Route path='/users/register' element={<Register />}></Route>
+                    <Route path='/users/logout' element={<Logout />}></Route>
                 </Routes>
             </div>
         </AuthContext.Provider>

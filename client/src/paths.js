@@ -1,6 +1,7 @@
 const Paths = {
     Home: '/',
-    Welcome: '/profile'
+    Welcome: '/profile',
+    Logout: '/logout'
 };
 
 export default Paths;

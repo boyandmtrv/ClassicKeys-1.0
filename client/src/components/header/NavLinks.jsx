@@ -30,6 +30,9 @@ const NavLinks = () => {
                     <Link to='/games/edit' className={`${linkStyle} mt-5`}>
                         <i className='bx bxs-edit-alt'></i>
                     </Link>
+                    <Link to='/users/logout' className={`${linkStyle} mt-5`}>
+                        <i className='bx bxs-log-out'></i>
+                    </Link>
                 </div>
             )}
 
