@@ -23,13 +23,14 @@ const RegisterComponent = () => {
 
     return (
 
-        <div className="w-full h-screen mt-[-112px] flex justify-center items-center bg-zinc-800">
-            <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10">
+        <div className="w-full h-screen mt-[-88px] flex justify-center items-center bg-zinc-800">
+            <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10 border-2 border-black rounded-md border-b-8 border-l-8">
                 <form onSubmit={onSubmitHandler}>
                     <h1 className='text-[50px] text-center mt-[50px]'>Register</h1>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 border text-base pl-5 pr-10 py-5 rounded-[40px]'
+                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="email"
                             name="email"
                             id="email"
@@ -41,7 +42,8 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 border text-base pl-5 pr-10 py-5 rounded-[40px]'
+                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="text"
                             name="username"
                             id="username"
@@ -53,7 +55,8 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] border text-base pl-5 pr-10 py-5 rounded-[40px] bg-zinc-800'
+                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="password"
                             name="password"
                             id="password"
@@ -65,7 +68,8 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 border text-base pl-5 pr-10 py-5 rounded-[40px]'
+                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="password"
                             name="repeatPassword"
                             id="repeatPassword"
