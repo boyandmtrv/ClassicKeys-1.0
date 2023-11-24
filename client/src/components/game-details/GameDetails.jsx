@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import * as gameService from "../../services/gameService";
+import useForm from '../../hooks/useForm';
+import AuthContext from "../../contexts/AuthContext";
 
 const GameDetails = () => {
 
     const { id } = useParams();
-
+    const { userId } = useContext(AuthContext)
     const [game, setGame] = useState({});
 
     useEffect(() => {
         gameService.getOne(id)
             .then(result => setGame(result))
     }, [id]);
+
+    const isOwner = userId === game._ownerId;
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
@@ -46,11 +50,13 @@ const GameDetails = () => {
                         <div className="border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2">{game.time}</div>
 
                     </div>
-                    {/* <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
-                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]" type="submit" value="Create Game"><span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Play</span>
-                        </button>
-                        <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Cancel</button>
-                    </div> */}
+                    {isOwner && (
+                        <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
+                            <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]" type="submit" value="Create Game"><span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Edit</span>
+                            </button>
+                            <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Delete</button>
+                        </div>
+                    )}
 
                 </div>
             </form >

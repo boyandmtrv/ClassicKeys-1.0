@@ -49,6 +49,7 @@ export const AuthProvider = ({
         logoutHandler,
         username: authData.username || authData.email,
         email: authData.email,
+        userId: authData._id,
         isAuth: !!authData.accessToken
     };
 
