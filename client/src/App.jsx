@@ -1,10 +1,7 @@
 import './App.css';
-import { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import AuthContext from './contexts/AuthContext';
-import * as authService from './services/authSevice';
-import Paths from './paths';
+import AuthContext, { AuthProvider } from './contexts/AuthContext';
 
 import Header from './components/header/Header';
 import Home from './components/home/Home'
@@ -20,54 +17,9 @@ import Logout from './components/user/Logout';
 
 
 function App() {
-    const navigate = useNavigate();
-    const [authData, setAuthData] = useState(() => {
-        localStorage.removeItem('accessToken');
-
-        return {};
-    });
-
-    const loginHandler = async (values) => {
-        const result = await authService.login(values.email, values.password);
-
-        setAuthData(result);
-
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Paths.Welcome)
-        
-    };
-
-    const registerHandler = async (values) => {
-        const result = await authService.register(values.email, values.username, values.password);
-
-        setAuthData(result);
-
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Paths.Welcome)      
-    };
-
-    const logoutHandler = () => {
-        setAuthData({});
-
-        localStorage.removeItem('accessToken');
-
-        navigate(Paths.Home)
-    };
-
-
-    const values = {
-        loginHandler,
-        registerHandler,
-        logoutHandler,
-        username: authData.username || authData.email,
-        email: authData.email,
-        isAuth: !!authData.accessToken
-    };
-
+   
     return (
-        <AuthContext.Provider value={values}>
+        <AuthProvider>
             <div className='App bg-zinc-800'>
                 <Header />
 
@@ -84,7 +36,7 @@ function App() {
                     <Route path='/users/logout' element={<Logout />}></Route>
                 </Routes>
             </div>
-        </AuthContext.Provider>
+        </AuthProvider>
     )
 }
 
