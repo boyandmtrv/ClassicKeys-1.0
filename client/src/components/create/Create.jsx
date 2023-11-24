@@ -27,7 +27,7 @@ const Create = () => {
 
         try {
             await gameService.create(gameData)
-
+ 
             navigate('/games')
         } catch (err) {
             console.log(err);

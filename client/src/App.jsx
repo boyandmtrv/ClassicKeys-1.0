@@ -14,6 +14,7 @@ import AllGames from './components/all-games/AllGames';
 import GameDetails from './components/game-details/GameDetails';
 import Welcome from './components/home/Welcome';
 import Logout from './components/user/Logout';
+import Paths from './paths';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
                     <Route path="/games" element={<AllGames />}></Route>
                     <Route path='/games/create' element={<Create />}></Route>
                     <Route path='/games/:id/details' element={<GameDetails />}></Route>
-                    <Route path='/games/edit' element={<Edit />}></Route>
+                    <Route path={Paths.Edit} element={<Edit />}></Route>
                     <Route path='/users/login' element={<Login />}></Route>
                     <Route path='/users/register' element={<Register />}></Route>
                     <Route path='/users/logout' element={<Logout />}></Route>

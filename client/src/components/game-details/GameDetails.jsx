@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import * as gameService from "../../services/gameService";
-import useForm from '../../hooks/useForm';
 import AuthContext from "../../contexts/AuthContext";
+import { pathToUrl } from "../../utils/namePaths";
+import Paths from "../../paths";
 
 const GameDetails = () => {
 
@@ -52,9 +53,13 @@ const GameDetails = () => {
                     </div>
                     {isOwner && (
                         <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
-                            <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]" type="submit" value="Create Game"><span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Edit</span>
-                            </button>
-                            <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10">Delete</button>
+                            <Link to={pathToUrl(Paths.Edit, {id})} className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]">
+                                <span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Edit</span>
+                            </Link>
+                            <Link to='/games/:id/details/delete' className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-zinc-800 text-[#D1D0C5]">
+                                <span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Delete</span>
+                            </Link>
+            
                         </div>
                     )}
 
@@ -66,5 +71,3 @@ const GameDetails = () => {
 
 export default GameDetails;
 
-
-// #D1D0C5
