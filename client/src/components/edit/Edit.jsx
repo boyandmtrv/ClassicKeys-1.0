@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import useForm from '../../hooks/useForm';
 import * as gameService from '../../services/gameService';
+import AuthContext from "../../contexts/AuthContext";
 
 const Edit = () => {
     const navigate = useNavigate();
@@ -12,6 +13,8 @@ const Edit = () => {
         difficulty: '',
         time: ''
     });
+
+    const { username } = useContext(AuthContext);
 
     useEffect(() => {
         gameService.getOne(id)
@@ -31,15 +34,15 @@ const Edit = () => {
         };
 
     };
-    
+
     const { values, onChangeHandler, onSubmitHandler } = useForm(editGameSubmitHandler, game);
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
             <form className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8" onSubmit={onSubmitHandler}>
                 <div className="w-3/5 p-10">
-                    <div className="text-left font-bold text-5xl text-white">
-                        <span className="text-[#D1D0C5]">Create</span> your game
+                    <div className="text-left font-bold text-5xl text-[#D1D0C5]">
+                        <span className="text-white">You are in</span> editing mode, {username}
                         <div className="border-2 w-10 mt-2 border-amber-300"></div>
                     </div>
                     <div className="flex flex-col items-center">
@@ -52,11 +55,11 @@ const Edit = () => {
                             value={values.userText}
                         />
                     </div>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]">Generate random sentence</button>
+                    <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
-                        <span className="text-white">Specify</span> the game
+                        <span className="text-white">Change</span> the game
                     </div>
                     <div className="flex flex-col mt-11">
                         <input className="h-12 text-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 bg-zinc-800 pl-2 placeholder-[#D1D0C5] text-2xl" type="text"
