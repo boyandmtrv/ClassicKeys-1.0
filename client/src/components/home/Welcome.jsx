@@ -5,7 +5,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Welcome = () => {
     const linkStyle =
-    "flex flex-col items-center justify-center border-2 border-black rounded-md border-b-8 border-l-8 text-[#D1D0C5] w-72 h-16 p-2 mb-5 transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-white";
+    "flex flex-col items-center justify-center border-2 border-black rounded-md border-b-8 border-l-8 text-[#D1D0C5] w-72 h-16 p-2 mb-5 transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black";
 
 
     const { username } = useContext(AuthContext);
@@ -47,7 +47,7 @@ const Welcome = () => {
                 </h1>
 
             </div>
-            <div className="w-[50%] h-screen bg-zinc-800 flex flex-col justify-center items-center mt-[-100px] text-4xl">
+            <div className="w-[50%] h-screen bg-zinc-800 flex flex-col justify-center items-center mt-[-100px] text-3xl">
                 <Link to="/play" className={linkStyle}>
                     Play Game
                 </Link>

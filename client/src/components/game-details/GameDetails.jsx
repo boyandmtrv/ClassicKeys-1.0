@@ -27,7 +27,13 @@ const GameDetails = () => {
                         <div className="border-2 w-10 mt-2 border-amber-300"></div>
                     </div>
                     <div className="flex flex-col items-center">
-                        <div className="text-black bg-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 text-3xl w-full h-80 p-2 mt-[50px] p=t">{game.userText}</div>
+                        <textarea className="text-black bg-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 text-3xl w-full h-80 p-2 mt-[50px] resize-none placeholder-black scrollbar scrollbar-thumb-gray-900 scrollbar-track-[#D1D0C5]"
+                            id="userText"
+                            name="userText"
+                            type="text"
+                            placeholder="Type your words here"
+                            value={game.userText}
+                        />
                     </div>
 
                     <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
