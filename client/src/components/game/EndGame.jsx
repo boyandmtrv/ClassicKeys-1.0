@@ -11,7 +11,16 @@ const EndGame = ({
     onRetake
 }) => {
 
-    const acc = `${Math.round((correctWord / (correctWord + incorrectWord)) * 100)} %`;
+    const acc = `${(Math.round((correctWord / (correctWord + incorrectWord)) * 100))} %`;
+
+    let textToShow;
+    if (acc >= '80') {
+        textToShow = "Great job!";
+    } else if (acc >= '60') {
+        textToShow = "Good effort!";
+    } else {
+        textToShow = "Pretty bad!";
+    }
 
     const linkStyle =
         "flex flex-col items-center justify-center border-2 border-black rounded-md border-b-8 border-l-8 text-[#D1D0C5] w-80 h-16 p-2 mb-5 transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black";
@@ -39,9 +48,9 @@ const EndGame = ({
     return (
         <div className="w-full h-screen bg-zinc-800 flex">
             <div className="w-[50%] h-screen bg-zinc-800">
-                <animated.h1 className="translate-x-2/4 translate-y-[-50] mt-[30%] text-[150px] text-white" style={headerProps}>
+                <animated.h1 className="translate-x-2/4 translate-y-[-50] mt-[30%] text-[120px] text-white" style={headerProps}>
                     <span className="text-black tracking-tighter">
-                        <div className="text-white">Great job, {username}</div>
+                        <div className="text-white">{textToShow}, {username}</div>
                     </span>
                     <div className="text-3xl ml-[70px] text-[#D1D0C5]">
                         <div className="flex space-x-4 mt-10">
