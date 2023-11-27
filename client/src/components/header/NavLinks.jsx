@@ -9,7 +9,7 @@ const NavLinks = () => {
     } = useContext(AuthContext);
 
     const linkStyle =
-        "flex items-center justify-center border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] w-16 h-16 p-2";
+        "flex items-center justify-center border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] w-16 h-16 p-2 transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200 hover:text-black";
 
     return (
         <>
