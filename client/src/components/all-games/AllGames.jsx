@@ -14,7 +14,7 @@ const AllGames = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap mt-[-112px] justify-start min-h-screen flex-1 px-20 bg-[zinc-800] pt-[150px] gap-10 ml-5">
+    <div className="flex flex-wrap justify-start h-screen px-20 bg-[zinc-800] ml-5">
 
       {games.map(game => (
         <EachGame key={game._id} {...game} />
