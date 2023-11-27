@@ -57,14 +57,14 @@ const Create = () => {
                         <div className="border-2 w-10 mt-2 border-amber-300"></div>
                     </div>
                     <div className="flex flex-col items-center">
-                        <textarea className="text-black bg-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 text-3xl w-full h-80 p-2 mt-[50px] resize-none placeholder-black"
+                        <textarea className="text-black bg-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 text-3xl w-full h-80 p-2 mt-[50px] resize-none placeholder-black scrollbar scrollbar-thumb-gray-900 scrollbar-track-[#D1D0C5]"
                             id="userText"
                             name="userText"
                             type="text"
                             placeholder="Type your words here"
                         />
                     </div>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-2xl text-[#D1D0C5]" onClick={onClick}>Generate random sentence</button>
+                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-96 h-12 font-black px-2 mt-10 text-xl text-[#D1D0C5]" onClick={onClick}>Generate random sentence</button>
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
@@ -81,7 +81,7 @@ const Create = () => {
 
                     <div className="text-black text-2xl font-normal justify-center flex gap-2 pt-2">
                         <select
-                            className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 ${selectedDifficulty ? 'bg-amber-400 text-black' : ''}`}
+                            className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 ${selectedDifficulty ? 'bg-zinc-800 text-[#D1D0C5]' : ''}`}
                             id="difficulty"
                             name="difficulty"
                             value={selectedDifficulty || ''}
@@ -97,7 +97,7 @@ const Create = () => {
                     <div className="text-black text-2xl font-normal justify-center flex gap gap-2 pt-2">
 
                         <select
-                            className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 ${selectedTime ? 'bg-amber-400 text-black' : ''}`}
+                            className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 ${selectedTime ? 'bg-zinc-800 text-[#D1D0C5]' : ''}`}
                             id="time"
                             name="time"
                             value={selectedTime || ''}
