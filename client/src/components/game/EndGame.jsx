@@ -11,29 +11,29 @@ const EndGame = ({
     onRetake
 }) => {
 
-    const acc = `${ Math.round((correctWord / (correctWord + incorrectWord)) * 100) } %`;
+    const acc = `${Math.round((correctWord / (correctWord + incorrectWord)) * 100)} %`;
 
     const linkStyle =
         "flex flex-col items-center justify-center border-2 border-black rounded-md border-b-8 border-l-8 text-[#D1D0C5] w-80 h-16 p-2 mb-5 transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black";
 
     const { username } = useContext(AuthContext);
 
-        const headerProps = useSpring({
+    const headerProps = useSpring({
         opacity: 1,
         from: { opacity: 0 },
-        delay: 200, // Delay for 500ms
+        delay: 200,
     });
 
     const statsProps = useSpring({
         opacity: 1,
         from: { opacity: 0 },
-        delay: 700, // Delay for 1000ms
+        delay: 700,
     });
 
     const buttonsProps = useSpring({
         opacity: 1,
         from: { opacity: 0 },
-        delay: 1000, // Delay for 1500ms
+        delay: 1000,
     });
 
     return (
