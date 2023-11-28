@@ -11,8 +11,14 @@ const Logout = () => {
 
     useEffect(() => {
         authService.logout()
-            .then(() => logoutHandler())
-            .catch(() => navigate(Paths.Home));
+            .then(() => {
+                logoutHandler();
+                navigate(Paths.Home)
+            })
+            .catch(() => {
+                logoutHandler();
+                navigate(Paths.Home);
+            });
     }, []);
 
     return null;
