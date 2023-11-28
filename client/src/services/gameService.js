@@ -2,8 +2,8 @@ import * as request from '../lib/request';
 
 const baseUrl = `http://localhost:3030/data/games`;
 
-export const getOne = async (id) => {
-    const result = await request.get(`${baseUrl}/${id}`);
+export const getOne = async (gameId) => {
+    const result = await request.get(`${baseUrl}/${gameId}`);
     return result;
 };
 
@@ -21,3 +21,5 @@ export const edit = async (gameId, gameData) => {
     const result = await request.put(`${baseUrl}/${gameId}`, gameData);
     return result;
 };
+
+export const remove = async (gameId) => request.del(`${baseUrl}/${gameId}`)

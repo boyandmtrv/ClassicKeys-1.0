@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import * as gameService from "../../services/gameService";
 import AuthContext from "../../contexts/AuthContext";
 import { pathToUrl } from "../../utils/namePaths";
@@ -7,16 +7,32 @@ import Paths from "../../paths";
 
 const GameDetails = () => {
 
-    const { id } = useParams();
+    const navigate = useNavigate();
+    const { gameId } = useParams();
     const { userId, username } = useContext(AuthContext)
     const [game, setGame] = useState({});
 
     useEffect(() => {
-        gameService.getOne(id)
+        gameService.getOne(gameId)
             .then(result => setGame(result))
-    }, [id]);
+    }, [gameId]);
 
     const isOwner = userId === game._ownerId;
+
+    const onDeleteButton = async (e) => {
+        e.preventDefault();
+
+        const hasConfirmed = confirm(`Are you sure you want to delete ${game.title}?`);
+    
+        if (hasConfirmed) {
+            try {
+                await gameService.remove(gameId);
+                navigate('/games');
+            } catch (error) {
+                console.error("Error deleting game:", error);
+            }
+        }
+    };
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
@@ -58,12 +74,11 @@ const GameDetails = () => {
                     </div>
                     {isOwner && (
                         <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
-                            <Link to={pathToUrl(Paths.Edit, { id })} className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5] pt-1">
+                            <Link to={pathToUrl(Paths.Edit, { gameId })} className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5] pt-1">
                                 <span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Edit</span>
                             </Link>
-                            <Link to='/games/:id/details/delete' className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-zinc-800 text-[#D1D0C5] pt-1">
-                                <span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Delete</span>
-                            </Link>
+                            <button onClick={onDeleteButton} className="button border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-zinc-800 text-[#D1D0C5]">
+                                <span className="drop-shadow-[0_0.1px_1.1px_rgba(0,0,0,10)]">Delete</span></button>
 
                         </div>
                     )}

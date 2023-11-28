@@ -6,7 +6,7 @@ import AuthContext from "../../contexts/AuthContext";
 
 const Edit = () => {
     const navigate = useNavigate();
-    const { id } = useParams();
+    const { gameId } = useParams();
     const [game, setGame] = useState({
         userText: '',
         title: '',
@@ -17,16 +17,19 @@ const Edit = () => {
     const { username } = useContext(AuthContext);
 
     useEffect(() => {
-        gameService.getOne(id)
+        gameService.getOne(gameId)
             .then(result => {
                 setGame(result)
             })
-    }, [id]);
+    }, [gameId]);
 
-    const editGameSubmitHandler = async (values) => {
+    const editGameSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const values = Object.fromEntries(new FormData(e.currentTarget));
 
         try {
-            await gameService.edit(id, values)
+            await gameService.edit(gameId, values)
 
             navigate('/games')
         } catch (err) {
@@ -35,11 +38,17 @@ const Edit = () => {
 
     };
 
-    const { values, onChangeHandler, onSubmitHandler } = useForm(editGameSubmitHandler, game);
+    const onChangeHandler = (e) => {
+        setGame(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+    };
+
 
     return (
         <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
-            <form className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8" onSubmit={onSubmitHandler}>
+            <form className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8" onSubmit={editGameSubmitHandler}>
                 <div className="w-3/5 p-10">
                     <div className="text-left font-bold text-5xl text-[#D1D0C5]">
                         <span className="text-white">You are in</span> editing mode, {username}
@@ -50,9 +59,9 @@ const Edit = () => {
                             id="userText"
                             name="userText"
                             type="text"
-                            placeholder="Type your words here"
+                            value={game.userText}
                             onChange={onChangeHandler}
-                            value={values.userText}
+                            placeholder="Type your words here"
                         />
                     </div>
                     <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
@@ -65,9 +74,9 @@ const Edit = () => {
                         <input className="h-12 text-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 bg-zinc-800 pl-2 placeholder-[#D1D0C5] text-2xl" type="text"
                             id="title"
                             name="title"
-                            placeholder="Game name"
+                            value={game.title}
                             onChange={onChangeHandler}
-                            value={values.title}
+                            placeholder="Game name"
                         />
                     </div>
                     <p className="mt-7 text-xl">Difficulty:</p>
@@ -77,7 +86,7 @@ const Edit = () => {
                             className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 `}
                             id="difficulty"
                             name="difficulty"
-                            value={values.difficulty}
+                            value={game.difficulty} 
                             onChange={onChangeHandler}
                         >
                             <option value="easy">Easy</option>
@@ -93,7 +102,7 @@ const Edit = () => {
                             className={`border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2 w-36 `}
                             id="time"
                             name="time"
-                            value={values.time}
+                            value={game.time}
                             onChange={onChangeHandler}
                         >
                             <option value="15">15</option>

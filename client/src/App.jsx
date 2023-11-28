@@ -28,19 +28,18 @@ function App() {
                     <Header />
 
                     <Routes>
-                        <Route path='/' element={<Home />}></Route>
-                        <Route path="/games" element={<AllGames />}></Route>
-                        <Route path='/games/:id/details' element={<GameDetails />}></Route>
-                        <Route path='/users/login' element={<Login />}></Route>
-                        <Route path='/users/register' element={<Register />}></Route>
+                        <Route path={Paths.Home} element={<Home />}></Route>
+                        <Route path={Paths.AllGames} element={<AllGames />}></Route>
+                        <Route path={Paths.Details} element={<GameDetails />}></Route>
+                        <Route path={Paths.Login} element={<Login />}></Route>
+                        <Route path={Paths.Register}  element={<Register />}></Route>
 
                         <Route element={<AuthGuard />}>
-                            <Route path='/games/create' element={<Create />}></Route>
+                            <Route path={Paths.Create} element={<Create />}></Route>
                             <Route path={Paths.Edit} element={<Edit />}></Route>
-                            <Route path='/users/logout' element={<Logout />}></Route>
-                            <Route path='/profile' element={<Welcome />}></Route>
-                            <Route path='/play' element={<GameController />}></Route>
-
+                            <Route path={Paths.Logout} element={<Logout />}></Route>
+                            <Route path={Paths.Welcome} element={<Welcome />}></Route>
+                            <Route path={Paths.Play} element={<GameController />}></Route>
                         </Route>
                     </Routes>
                 </div>
