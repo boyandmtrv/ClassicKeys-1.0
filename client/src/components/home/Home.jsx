@@ -37,10 +37,11 @@ const HomeComponent = () => {
 
                 </div>
                 <div className="absolute bottom-0 right-0 mb-4 mr-10 flex items-center">
-                    <Link to="/" className="text-3xl text-[#D1D0C5] hover:text-black">
+                    <Link to="https://github.com/boyandmtrv" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#D1D0C5] hover:text-black">
                         <i className='bx bxl-github border-2 border-black rounded-md border-b-4 border-l-4 w-16 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'></i>
                     </Link>
-                    <Link to="/" className="text-3xl text-[#D1D0C5] ml-12 hover:text-black">
+
+                    <Link to="https://www.linkedin.com/in/boyan-dimitrov-4402b4179/" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#D1D0C5] ml-12 hover:text-black">
                         <i className='bx bxl-linkedin border-2 border-black rounded-md border-b-4 border-l-4 w-16 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'></i>
                     </Link>
                 </div>
