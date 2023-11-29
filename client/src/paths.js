@@ -1,6 +1,6 @@
 const Paths = {
     Home: '/',
-    AllGames: 'games',
+    AllGames: '/games',
     Details: '/games/:gameId/details',
     Login: '/users/login',
     Register: '/users/register',
@@ -10,7 +10,7 @@ const Paths = {
     Logout: '/users/logout',
     Edit: '/games/:gameId/details/edit',
     Delete: '/games/:gameId/details/delete',
-
+    UserPlay: '/games/user/play'
 };
 
 export default Paths;

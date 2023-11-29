@@ -17,6 +17,7 @@ import Logout from './components/user/Logout';
 import Paths from './paths';
 import ErrorBoundary from './errors/ErrorBoundry';
 import AuthGuard from './guards/AuthGuard';
+import UserPlayGame from './components/game/UserPlayGame';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
                         <Route path={Paths.AllGames} element={<AllGames />}></Route>
                         <Route path={Paths.Details} element={<GameDetails />}></Route>
                         <Route path={Paths.Login} element={<Login />}></Route>
-                        <Route path={Paths.Register}  element={<Register />}></Route>
+                        <Route path={Paths.Register} element={<Register />}></Route>
 
                         <Route element={<AuthGuard />}>
                             <Route path={Paths.Create} element={<Create />}></Route>
@@ -40,6 +41,8 @@ function App() {
                             <Route path={Paths.Logout} element={<Logout />}></Route>
                             <Route path={Paths.Welcome} element={<Welcome />}></Route>
                             <Route path={Paths.Play} element={<GameController />}></Route>
+                            <Route path={Paths.UserPlay} element={<UserPlayGame />}></Route>
+                           
                         </Route>
                     </Routes>
                 </div>
@@ -49,4 +52,3 @@ function App() {
 }
 
 export default App;
-

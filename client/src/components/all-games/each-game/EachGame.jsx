@@ -27,12 +27,7 @@ const EachGame = ({
                     className="bg-zinc-800 text-[#D1D0C5] mr-5 py-1 px-4 text-2xl group border-2 border-black rounded-md border-b-4 border-l-4 hover:bg-amber-300 hover:text-black transition duration-300 ease-in-out transform"
                 > Details
                 </Link>
-                <Link
-                    to={`/games/${_id}/details`}
-                    className="bg-amber-300 text-black font-semibold py-1 px-4 text-2xl group border-2 border-black rounded-md border-b-4 border-l-4 hover:bg-zinc-800 hover:text-[#D1D0C5] transition duration-300 ease-in-out transform"
-                >
-                    Play
-                </Link>
+                
             </td>
         </tr>
 
