@@ -65,15 +65,17 @@ const GameDetails = () => {
                             value={game.userText}
                         />
                     </div>
-
-                    <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
-                    <button
-                            onClick={handlePlayClick}
-                            className="bg-amber-300 flex text-black font-semibold py-1 px-4 text-2xl group border-2 border-black rounded-md border-b-4 border-l-4 hover:bg-zinc-800  hover:text-[#D1D0C5] transition duration-300 ease-in-out transform mt-3"
-                        >
-                            Test your game
-                        </button>
-
+                    {isOwner && isAuth && (
+                        <div>
+                            <Link to={`/games`} className="flex flex-col justify-center item border-2 border-black rounded-md border-b-4 border-l-4 w-24 h-12 font-black px-2 text-2xl text-[#D1D0C5] mt-8">Back</Link>
+                            <button
+                                onClick={handlePlayClick}
+                                className="bg-amber-300 flex text-black font-semibold py-1 px-4 text-2xl group border-2 border-black rounded-md border-b-4 border-l-4 hover:bg-zinc-800  hover:text-[#D1D0C5] transition duration-300 ease-in-out transform mt-3"
+                            >
+                                Test your game
+                            </button>
+                        </div>
+                    )}
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">

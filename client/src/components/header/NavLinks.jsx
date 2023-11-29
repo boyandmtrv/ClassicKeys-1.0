@@ -21,7 +21,7 @@ const NavLinks = () => {
             </Link>
             {isAuth && (
                 <div className="auth-user">
-                    <Link to='/profile' className={linkStyle}>
+                    <Link to='/play' className={linkStyle}>
                         <i className='bx bxs-keyboard'></i>
                     </Link>
                     <Link to='/games/create' className={`${linkStyle} mt-5`}>

@@ -7,7 +7,7 @@ import EndGame from "./EndGame";
 const StartGame = () => {
 
     const [wordsCount, setWordsCount] = useState([]);
-    const [countdown, setCountdown] = useState(wordHelpers.SECONDS);
+    const [countdown, setCountdown] = useState(15);
     const [currentInputValue, setCurrentInputValue] = useState('');
     const [wordIndex, setWordIndex] = useState(0);
     const [correctWord, setCorrectWord] = useState(0);
@@ -16,6 +16,8 @@ const StartGame = () => {
     const [inputFocused, setInputFocused] = useState(false);
     const [currCharIndex, setCurrCharIndex] = useState(-1);
     const [currChar, setCurrChar] = useState('')
+    const [selectedTime, setSelectedTime] = useState(15);
+
 
     const textInput = useRef(null);
     const intervalRef = useRef();
@@ -39,7 +41,7 @@ const StartGame = () => {
 
     useEffect(() => {
         return () => clearInterval(intervalRef.current);
-      }, []);
+    }, []);
 
 
     function generateRandomWords() {
@@ -50,15 +52,21 @@ const StartGame = () => {
 
     function startTimerCountdown() {
         intervalRef.current = setInterval(() => {
-          setCountdown((lastSecondCount) => {
-            if (lastSecondCount === 0) {
-              clearInterval(intervalRef.current);
-            } else {
-              return lastSecondCount - 1;
-            }
-          });
+            setCountdown((lastSecondCount) => {
+                if (lastSecondCount === 0) {
+                    clearInterval(intervalRef.current);
+                } else {
+                    return lastSecondCount - 1;
+                }
+            });
         }, 1000);
-      };
+    };
+
+    function handleTimeChange(e) {
+        const selectedTime = parseInt(e.target.value, 10);
+        setSelectedTime(selectedTime);
+        setCountdown(selectedTime);
+    }
 
 
     function handleLetterTyping({ keyCode, key }) {
@@ -98,11 +106,11 @@ const StartGame = () => {
     };
 
     function getCharClass(word, wordIdx, charIndex, char) {
-    
+
         const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
 
         if (correctWord) {
-            
+
             if (char === currChar) {
                 return 'border-r-2 border-amber-200 text-neutral-100'
             } else {
@@ -115,30 +123,30 @@ const StartGame = () => {
         };
     };
 
-function refreshWords() {
-    setWordsCount(generateRandomWords());
-    clearInterval(intervalRef.current); 
+    function refreshWords() {
+        setWordsCount(generateRandomWords());
+        clearInterval(intervalRef.current);
 
-    setCountdown(wordHelpers.SECONDS);
-    setCurrentInputValue('');
-    setWordIndex(0);
-    setCorrectWord(0);
-    setIncorrectWord(0);
-    setStatusGame(false);
-    setInputFocused(false);
-}
+        setCountdown(selectedTime);
+        setCurrentInputValue('');
+        setWordIndex(0);
+        setCorrectWord(0);
+        setIncorrectWord(0);
+        setStatusGame(false);
+        setInputFocused(false);
+    }
 
-function retakeTest() {
-    setCountdown(wordHelpers.SECONDS);
-    clearInterval(intervalRef.current); 
+    function retakeTest() {
+        setCountdown(selectedTime);
+        clearInterval(intervalRef.current);
 
-    setCurrentInputValue('');
-    setWordIndex(0);
-    setCorrectWord(0);
-    setIncorrectWord(0);
-    setStatusGame(false);
-    setInputFocused(false);
-}
+        setCurrentInputValue('');
+        setWordIndex(0);
+        setCorrectWord(0);
+        setIncorrectWord(0);
+        setStatusGame(false);
+        setInputFocused(false);
+    }
 
     return (
         <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
@@ -148,6 +156,23 @@ function retakeTest() {
                 </div>
             ) : null}
 
+            {!statusGame ? (
+               <div className='flex flex-row justify-end mr-[150px] mb-3 w-full pr-5'>
+               <label htmlFor="timeSelect" className="text-[#D1D0C5] text-xl">
+                   Select seconds:
+               </label>
+               <select
+                   id="timeSelect"
+                   className="ml-2  bg-zinc-800 text-amber-300 outline-none"
+                   onChange={handleTimeChange}
+                   value={selectedTime}
+               >
+                        <option value={10} className="text-[#D1D0C5]">10s</option>
+                        <option value={15} className="text-[#D1D0C5]">15s</option>
+                        <option value={30} className="text-[#D1D0C5]">30s</option>
+               </select>
+           </div>
+            ) : null}
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
                     <div className="text-gray-500 text-4xl text-justify leading-2 line-clamp-3">

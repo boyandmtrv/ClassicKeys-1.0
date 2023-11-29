@@ -94,7 +94,7 @@ const Edit = () => {
                         </select>
 
                     </div>
-                    <p className="mt-7">Time:</p>
+                    <p className="mt-7">Seconds:</p>
                     <div className="text-black text-2xl font-normal justify-center flex gap gap-2 pt-2">
 
                         <select
@@ -104,9 +104,9 @@ const Edit = () => {
                             value={game.time}
                             onChange={onChangeHandler}
                         >
-                            <option value="15">15</option>
-                            <option value="30">30</option>
-                            <option value="60">60</option>
+                            <option value="10">10s</option>
+                            <option value="15">15s</option>
+                            <option value="30">30s</option>
                         </select>
                     </div>
                     <div className="text-[#D1D0C5] text-2xl font-normal justify-center flex gap gap-2 pt-10">
