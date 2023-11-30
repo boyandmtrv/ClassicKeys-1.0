@@ -18,6 +18,7 @@ import Logout from './components/user/Logout';
 import Paths from './paths';
 import ErrorBoundary from './errors/ErrorBoundry';
 import AuthGuard from './guards/AuthGuard';
+import About from './components/about/About';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                         <Route path={Paths.Details} element={<GameDetails />}></Route>
                         <Route path={Paths.Login} element={<Login />}></Route>
                         <Route path={Paths.Register} element={<Register />}></Route>
+                        <Route path={Paths.About} element={<About />}></Route>
 
                         <Route element={<AuthGuard />}>
                             <Route path={Paths.Create} element={<Create />}></Route>
