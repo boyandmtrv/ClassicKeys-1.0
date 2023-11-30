@@ -4,8 +4,6 @@ import * as gameService from "../../services/gameService";
 import AuthContext from "../../contexts/AuthContext";
 import { pathToUrl } from "../../utils/namePaths";
 import Paths from "../../paths";
-import UserPlayGame from "../game/UserPlayGame";
-
 
 const GameDetails = () => {
 

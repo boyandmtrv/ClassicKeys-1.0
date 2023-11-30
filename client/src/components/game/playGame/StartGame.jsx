@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { generate } from 'random-words';
-import wordHelpers from '../../utils/wordUtils';
+import wordHelpers from '../../../utils/wordUtils';
 import EndGame from "./EndGame";
 
 
@@ -223,4 +223,6 @@ const StartGame = () => {
 }
 
 export default StartGame;
+
+
 

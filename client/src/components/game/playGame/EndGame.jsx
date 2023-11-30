@@ -1,17 +1,17 @@
 import { useContext } from "react";
-import AuthContext from "../../contexts/AuthContext";
+import AuthContext from "../../../contexts/AuthContext";
 import { useSpring, animated } from 'react-spring';
-
-
 
 const EndGame = ({
     correctWord,
     incorrectWord,
     onRefresh,
-    onRetake
+    onRetake,
 }) => {
 
     const acc = `${(Math.round((correctWord / (correctWord + incorrectWord)) * 100))} %`;
+
+    const wpm = (((correctWord + incorrectWord) / 0.5 ) / 0.30).toFixed(2);
 
     let textToShow;
     if (acc >= '80') {
@@ -73,6 +73,10 @@ const EndGame = ({
                     <div className="flex flex-col">
                         <p>Accuracy:</p>
                         <p className="text-amber-300 text-9xl">{acc}</p>
+                    </div>
+                    <div className="flex flex-col">
+                        <p>WPM:</p>
+                        <p className="text-amber-300 text-9xl">{wpm}</p>
                     </div>
                 </animated.div>
             </div>

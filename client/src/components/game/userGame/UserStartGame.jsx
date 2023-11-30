@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import wordHelpers from '../../utils/wordUtils';
-import EndGame from "./EndGame";
+import UserEndGame from "./UserEndGame";
 
 
 const UserPlayGame = () => {
@@ -167,10 +166,7 @@ const UserPlayGame = () => {
                     </div>
                 ) : null}
                 {!statusGame ? (
-                    <div className="mt-4">
-                        <button className="px-4 py-2" onClick={refreshWords}>
-                            <i className='bx bx-refresh text-5xl text-[#D1D0C5] mt-5'></i>
-                        </button>
+                    <div className="mt-10">
                         <div className="mt-5">
                             <input
                                 type="text"
@@ -185,7 +181,7 @@ const UserPlayGame = () => {
                 ) : null}
 
                 {statusGame ? (
-                    <EndGame
+                    <UserEndGame
                         correctWord={correctWord}
                         incorrectWord={incorrentWord}
                         onRefresh={refreshWords}
