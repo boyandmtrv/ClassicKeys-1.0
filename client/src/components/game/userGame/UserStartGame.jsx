@@ -150,7 +150,7 @@ const UserPlayGame = () => {
 
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
-                    <div className="text-gray-500 text-4xl text-justify leading-2 line-clamp-3">
+                    <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {words.map((word, i) => (
                                 <span key={i}>
