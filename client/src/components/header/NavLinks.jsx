@@ -46,6 +46,7 @@ const NavLinks = () => {
             <Link to='/about' className={linkStyle}>
                 <i className='bx bx-info-circle' ></i>
             </Link>
+
         </>
     );
 };
