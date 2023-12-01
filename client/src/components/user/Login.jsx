@@ -53,7 +53,7 @@ const LoginComponent = () => {
                         <button className="w-6/12 h-10 cursor-pointer text-[15px]  ml-[25%] border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black" onClick={onSubmitHandler}>Login</button>
                     </div>
                     <div className="text-[15px] text-center mt-[50px] mb-[15px] mx-0">
-                        <p>First time using Clikni? You can<Link to='/users/register' className='text-amber-200 no-underline'> //Sign up</Link>  and test it out</p>
+                        <p>First time using <span className='text-[#D1D0C5]'>ClassicKeys 1.0</span>? You can<Link to='/users/register' className='text-amber-200 no-underline'> //Sign up</Link>  and test it out</p>
                     </div>
                 </form>
             </div>

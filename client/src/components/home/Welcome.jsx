@@ -33,9 +33,9 @@ const Welcome = () => {
     });
 
     return (
-        <div className="w-full h-screen bg-zinc-800 flex">
-            <div className="w-[50%] h-screen bg-zinc-800 relative">
-                <h1 className="absolute -translate-x-2/4 translate-y-[-50] ml-[200px] mt-20 text-[150px] text-white">
+        <div className="w-full h-screen bg-zinc-800 flex mt-[-112px]">
+            <div className="w-[65%] h-screen bg-zinc-800 relative border-r-2 border-zinc-700">
+                <h1 className="absolute -translate-x-2/4 translate-y-[-50] ml-[200px] mt-[20%] text-[150px] text-white">
                     <span className="mt-[-50px] text-black tracking-widest">
                         <div className="text-white">{text} {userText}
                             <div className="text-[150px] inline-block text-amber-300">
@@ -47,7 +47,7 @@ const Welcome = () => {
                 </h1>
 
             </div>
-            <div className="w-[50%] h-screen bg-zinc-800 flex flex-col justify-center items-center mt-[-100px] text-3xl">
+            <div className="w-[50%] h-screen bg-zinc-800 flex flex-col justify-center items-center text-3xl">
                 <Link to="/play" className={linkStyle}>
                     Play Game
                 </Link>

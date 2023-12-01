@@ -23,7 +23,7 @@ const RegisterComponent = () => {
 
     return (
 
-        <div className="w-full h-screen mt-[-88px] flex justify-center items-center bg-zinc-800">
+        <div className="w-full h-screen mt-[-112px] flex justify-center items-center bg-zinc-800">
             <div className="flex flex-col items-center justify-center w-[450px] bg-zinc-800 text-white px-[50px] py-10 border-2 border-black rounded-md border-b-8 border-l-8">
                 <form onSubmit={onSubmitHandler}>
                     <h1 className='text-[50px] text-center mt-[50px] text-[#D1D0C5]'>Register</h1>
@@ -83,7 +83,7 @@ const RegisterComponent = () => {
                         <button className="w-6/12 h-10 cursor-pointer text-[15px]  ml-[25%] border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black" onClick={onSubmitHandler}>Register</button>
                     </div>
                     <div className="text-[15px] text-center mt-[50px] mb-[15px] mx-0">
-                        <p>Already in the club?<Link to='/users/login' className='text-amber-200 no-underline'> //Sign in</Link> and continue the training</p>
+                        <p>Already in the <span className='text-[#D1D0C5]'>club</span>?<Link to='/users/login' className='text-amber-200 no-underline'> //Sign in</Link> and continue the training</p>
                     </div>
                 </form>
             </div>
