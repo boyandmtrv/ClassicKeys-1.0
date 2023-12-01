@@ -11,7 +11,8 @@ const Paths = {
     Logout: '/users/logout',
     Edit: '/games/:gameId/details/edit',
     Delete: '/games/:gameId/details/delete',
-    UserPlay: '/games/user/play'
+    UserPlay: '/games/user/play',
+    NotFound: '/404'
 };
 
 export default Paths;
