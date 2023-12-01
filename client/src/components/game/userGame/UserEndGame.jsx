@@ -68,7 +68,7 @@ const UserEndGame = ({
                     </div>
                 </animated.h1>
             </div>
-            <div className="w-[50%] h-screen bg-zinc-800 flex flex-col justify-center items-center">
+            <div className="w-[45%] h-screen bg-zinc-800 flex flex-col justify-center items-center">
                 <animated.div className="w-full h-[75%] flex flex-col items-center justify-between mt-10 ml-[30%] text-gray-500 text-3xl space-y-4" style={statsProps}>
                     <div className="flex flex-col">
                         <p>Correct Words:</p>
