@@ -9,7 +9,7 @@ const GameDetails = () => {
 
     const navigate = useNavigate();
     const { gameId } = useParams();
-    const { userId, username } = useContext(AuthContext)
+    const { userId, email } = useContext(AuthContext)
     const [game, setGame] = useState({});
 
     const {
@@ -22,6 +22,7 @@ const GameDetails = () => {
     }, [gameId]);
 
     const isOwner = userId === game._ownerId;
+    console.log(userId);
 
     const onDeleteButton = async (e) => {
         e.preventDefault();
@@ -77,7 +78,7 @@ const GameDetails = () => {
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
-                        <span className="text-white">check's</span> game</div>
+                        <span className="text-white">Game</span> specs</div>
                     <div className="flex flex-col mt-11">
                         <div className="h-12 text-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 bg-zinc-800 pl-2 pt-1 text-2xl">{game.title}</div>
                     </div>
@@ -88,7 +89,7 @@ const GameDetails = () => {
                     </div>
                     <p className="mt-7">Time:</p>
                     <div className="text-black text-2xl font-normal justify-center flex pt-2">
-                        <div className="border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2">{game.time}</div>
+                        <div className="border-2 bg-zinc-800 border-black text-[#D1D0C5] rounded-md border-b-4 border-l-4 font-black px-2">{game.time}s</div>
 
                     </div>
 

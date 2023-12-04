@@ -26,7 +26,7 @@ const AllGames = () => {
             <tr className="border-b border-zinc-700 text-2xl text-[#D1D0C5]">
               <th className="text-left p-3 px-5">Game title</th>
               <th className="text-left p-3 px-5">Difficulty Level</th>
-              <th className="text-left p-3 px-5">Game Creator</th>
+              <th className="text-left p-3 px-5">Time in seconds</th>
               <th></th>
             </tr>
             {

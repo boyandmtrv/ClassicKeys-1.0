@@ -1,14 +1,11 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../../contexts/AuthContext';
 
 const EachGame = ({
     _id,
     difficulty,
-    title
+    title,
+    time
 }) => {
-    const { username } = useContext(AuthContext);
-
 
     return (
         <tr className="border-b border-zinc-700 bg-zinc-800 text-xl">
@@ -19,7 +16,7 @@ const EachGame = ({
                 <p>{difficulty}</p>
             </td>
             <td className="p-3 px-5">
-                <p>{username}</p>
+                <p>{time}s</p>
             </td>
             <td className="p-3 px-5 flex justify-end">
                 <Link

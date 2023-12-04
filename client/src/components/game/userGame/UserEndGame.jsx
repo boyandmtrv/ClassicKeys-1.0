@@ -60,7 +60,7 @@ const UserEndGame = ({
                     <span className="text-black tracking-tighter">
                         <div className="text-white">{textToShow}, {username}</div>
                     </span>
-                    <div className="text-3xl ml-[259px] text-[#D1D0C5]">
+                    <div className="text-3xl ml-[180px] text-[#D1D0C5]">
                         <div className="flex space-x-4 mt-10">
                             <animated.button className={linkStyle} onClick={onRetake} style={buttonsProps}>Try again</animated.button>
                          
