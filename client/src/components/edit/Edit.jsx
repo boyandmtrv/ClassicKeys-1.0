@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import AuthContext from "../../contexts/AuthContext";
+import { toast } from 'react-toastify';
 
 const Edit = () => {
     const navigate = useNavigate();
@@ -29,8 +30,8 @@ const Edit = () => {
 
         try {
             await gameService.edit(gameId, values)
-
             navigate('/games')
+            toast.success('Game edited')
         } catch (err) {
             console.log(err);
         };

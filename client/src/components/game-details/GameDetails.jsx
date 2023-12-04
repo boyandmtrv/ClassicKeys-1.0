@@ -4,7 +4,7 @@ import * as gameService from "../../services/gameService";
 import AuthContext from "../../contexts/AuthContext";
 import { pathToUrl } from "../../utils/namePaths";
 import Paths from "../../paths";
-
+import { toast } from 'react-toastify';
 
 const GameDetails = () => {
 
@@ -33,6 +33,7 @@ const GameDetails = () => {
             try {
                 await gameService.remove(gameId);
                 navigate('/games');
+                toast.success('Game Deleted')
             } catch (error) {
                 console.error("Error deleting game:", error);
             }
