@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { generate } from 'random-words'
 import * as gameService from "../../services/gameService";
 import wordHelpers from '../../utils/wordUtils';
+import { toast } from "react-toastify";
 
 const Create = () => {
     
@@ -25,9 +26,20 @@ const Create = () => {
 
         const gameData = Object.fromEntries(new FormData(e.currentTarget));
 
+        if (gameData.userText.length < 20) {
+            toast.error('Text / words must be at least 20 characters long.');
+            return;
+        }
+
+        if (gameData.title.length < 5) {
+            toast.error('Title must be at least 5 characters long.');
+            return;
+        }
+
+
         try {
             await gameService.create(gameData)
- 
+            toast.success('Game Created successfully')
             navigate('/games')
         } catch (err) {
             console.log(err);

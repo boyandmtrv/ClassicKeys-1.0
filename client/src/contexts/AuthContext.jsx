@@ -69,7 +69,7 @@ export const AuthProvider = ({
             <AuthContext.Provider value={values}>
                 {children}
             </AuthContext.Provider>
-            <ToastContainer
+            <ToastContainer 
                 position="top-right"
                 autoClose={2500}
                 hideProgressBar={true}
@@ -78,7 +78,7 @@ export const AuthProvider = ({
                 rtl={false}
                 pauseOnFocusLoss
                 pauseOnHover
-                theme="light"
+                theme=""
             />
         </>
     )
