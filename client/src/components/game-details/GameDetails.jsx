@@ -5,11 +5,12 @@ import AuthContext from "../../contexts/AuthContext";
 import { pathToUrl } from "../../utils/namePaths";
 import Paths from "../../paths";
 
+
 const GameDetails = () => {
 
     const navigate = useNavigate();
     const { gameId } = useParams();
-    const { userId, email } = useContext(AuthContext)
+    const { userId } = useContext(AuthContext)
     const [game, setGame] = useState({});
 
     const {
