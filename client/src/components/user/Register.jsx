@@ -1,7 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 import useForm from '../../hooks/useForm';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const RegisterFormKeys = {
@@ -14,12 +16,36 @@ const RegisterFormKeys = {
 const RegisterComponent = () => {
 
     const { registerHandler } = useContext(AuthContext);
-    const { values, onChangeHandler, onSubmitHandler } = useForm(registerHandler, {
+    const { values, onChangeHandler } = useForm(registerHandler, {
         [RegisterFormKeys.Email]: '',
         [RegisterFormKeys.Username]: '',
         [RegisterFormKeys.Password]: '',
         [RegisterFormKeys.RepeatPassword]: '',
     });
+
+    const onSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const {email, password, repeatPassword } = values;
+
+        if (password !== repeatPassword) {
+            console.error('Password mismatch');
+            toast.error('Password mismatch');
+        } else if (email.length < 5) {
+            console.error('Email too short');
+            toast.error('Email must be at least 5 characters long.');
+        } else if (password.length < 6) {
+            console.error('Password too short');
+            toast.error('Password must be at least 6 characters long.');
+        } else {
+            try {
+                await registerHandler(values);
+            } catch (error) {
+                console.error('Registration failed:', error.message);
+                toast.error(`Registration failed: ${error.message}`);
+            }
+        }
+    };
 
     return (
 
