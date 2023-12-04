@@ -130,11 +130,13 @@ const UserPlayGame = () => {
         if (correctWord) {
 
             if (char === currChar) {
-                return 'border-r-2 border-amber-200 text-neutral-100'
+                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
             } else {
                 return 'text-red-500'
             }
-        } else if (wordIdx === wordIndex && currCharIndex >= words[wordIndex].length) {
+        } else if (wordIdx === wordIndex && currCharIndex <= words[wordIndex].length) {
+            return 'text-gray-400'
+        } else if (wordIdx === wordIndex && currCharIndex > words[wordIndex].length) {
             return 'bg-red-300'
         } else {
             return '';

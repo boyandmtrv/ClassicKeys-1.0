@@ -15,14 +15,14 @@ const About = () => {
                             </p>
 
                             <br />
-                            <p className="text-zinc-800 2xl:text-md lg:px-9  2xl:mx-2">
+                            <div className="text-zinc-800 2xl:text-md lg:px-9  2xl:mx-2">
                                 <p>User Information:</p>
 
                                 <p>Each authenticated user is privileged to:</p>
                                 <p>- Create / Edit / Delete their own game</p>
                                 <p>- Customize the game by their preferences, choosing difficulty levels and seconds</p>
                                 <p>- Test their own game and games created by other users</p>
-                            </p>
+                            </div>
                         </div>
                     </div>
 
@@ -56,7 +56,6 @@ const About = () => {
                             </Link>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

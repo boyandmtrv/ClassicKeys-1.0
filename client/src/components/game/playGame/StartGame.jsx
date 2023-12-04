@@ -112,12 +112,12 @@ const StartGame = () => {
         if (correctWord) {
 
             if (char === currChar) {
-                return 'border-r-2 border-amber-200 text-black'
+                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
             } else {
                 return 'text-red-500'
             }
         }  else if (wordIdx === wordIndex && currCharIndex <= wordsCount[wordIndex].length) {
-            return 'text-[#D1D0C5]'
+            return 'text-gray-400'
         } else if (wordIdx === wordIndex && currCharIndex > wordsCount[wordIndex].length) {
             return 'bg-red-300'
         } else {
