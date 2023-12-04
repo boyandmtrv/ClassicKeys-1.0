@@ -18,7 +18,7 @@ const buildOptions = (data) => {
         };
     };
 
-    return options
+    return options;
 };
 
 export const request = async (method, url, data) => {

@@ -23,7 +23,6 @@ const GameDetails = () => {
     }, [gameId]);
 
     const isOwner = userId === game._ownerId;
-    console.log(userId);
 
     const onDeleteButton = async (e) => {
         e.preventDefault();
