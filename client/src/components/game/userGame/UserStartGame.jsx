@@ -113,6 +113,8 @@ const UserPlayGame = () => {
         setWordIndex(0);
         setCorrectWord(0);
         setIncorrectWord(0);
+        setCurrCharIndex(-1);
+        setCurrChar('');
         setStatusGame(false);
         setInputFocused(false);
     }
@@ -125,6 +127,8 @@ const UserPlayGame = () => {
         setWordIndex(0);
         setCorrectWord(0);
         setIncorrectWord(0);
+        setCurrCharIndex(-1);
+        setCurrChar('');
         setStatusGame(false);
         setInputFocused(false);
     }

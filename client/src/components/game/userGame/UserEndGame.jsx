@@ -63,8 +63,8 @@ const UserEndGame = ({
                     <div className="text-3xl ml-[180px] text-[#D1D0C5]">
                         <div className="flex space-x-4 mt-10">
                             <animated.button className={linkStyle} onClick={onRetake} style={buttonsProps}>Try again</animated.button>
-                         
                         </div>
+                      
                     </div>
                 </animated.h1>
             </div>
