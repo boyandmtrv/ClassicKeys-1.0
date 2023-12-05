@@ -26,19 +26,29 @@ const GameDetails = () => {
 
     const onDeleteButton = async (e) => {
         e.preventDefault();
-
-        const hasConfirmed = confirm(`Are you sure you want to delete ${game.title}?`);
-
-        if (hasConfirmed) {
-            try {
-                await gameService.remove(gameId);
-                navigate('/games');
-                toast.success('Game Deleted')
-            } catch (error) {
-                console.error("Error deleting game:", error);
-            }
-        }
+    
+        toast.warning(`By clicking here, you will delete: ${game.title}?`, {
+            position: "top-center",
+            autoClose: false,
+            closeOnClick: true,
+            closeButton: true,
+            closeOnEscape: true,
+            draggable: true,
+            progress: undefined,
+            onClick: async () => {
+                try {
+                    await gameService.remove(gameId);
+                    navigate('/games');
+                    toast.success('Game Deleted');
+                } catch (error) {
+                    console.error("Error deleting game:", error);
+                    toast.error('Error deleting game');
+                }
+            },
+         
+        });
     };
+    
 
     const handlePlayClick = () => {
         navigate('/games/user/play', {
