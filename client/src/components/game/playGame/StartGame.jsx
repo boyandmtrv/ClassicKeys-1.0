@@ -13,62 +13,59 @@ const StartGame = () => {
     const [correctWord, setCorrectWord] = useState(0);
     const [incorrentWord, setIncorrectWord] = useState(0);
     const [statusGame, setStatusGame] = useState(false);
-    const [gameEnded, setGameEnded] = useState(false);
     const [inputFocused, setInputFocused] = useState(false);
     const [currCharIndex, setCurrCharIndex] = useState(-1);
     const [currChar, setCurrChar] = useState('')
     const [selectedTime, setSelectedTime] = useState(15);
-
+    const [difficulty, setDifficulty] = useState('easy');
 
     const textInput = useRef(null);
     const intervalRef = useRef();
 
+    useEffect(() => {
+        setWordsCount(generateRandomWords(difficulty));
+    }, [difficulty]);
 
     useEffect(() => {
-        setWordsCount(generateRandomWords());
-    }, []);
-
-    useEffect(() => {
-        if (countdown === 0 && statusGame) {
+        if (countdown === 0) {
             setStatusGame(true);
         }
-    }, [countdown, statusGame]);
+    }, [countdown]);
 
     useEffect(() => {
-        if (countdown === 0 && !gameEnded) {
-            setStatusGame(true);
-        }
-    }, [countdown, gameEnded]);
-
-    useEffect(() => {
-        if ((wordIndex !== wordsCount.length)) {
-            setGameEnded(false);
-        } else if (wordIndex === wordsCount.length) {
-            setGameEnded(true)
-        };
-    
-    }, [wordIndex, gameEnded]);
-
-    useEffect(() => {
-        if (gameEnded === false) {
+        if (statusGame === false) {
             textInput.current.focus();
         }
-    }, [gameEnded]);
+    }, [statusGame]);
 
     useEffect(() => {
         return () => clearInterval(intervalRef.current);
     }, []);
 
 
-    function generateRandomWords() {
+    function generateRandomWords(selectedDifficulty) {
+        let minWordLength, maxWordLength;
+        if (selectedDifficulty === 'easy') {
+            minWordLength = 3;
+            maxWordLength = 4;
+        } else if (selectedDifficulty === 'medium') {
+            minWordLength = 5;
+            maxWordLength = 6;
+        } else if (selectedDifficulty === 'hard') {
+            minWordLength = 7; 
+            maxWordLength = 8; 
+        }
+
         const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
-        console.log(words);
+        const filteredWords = words.filter(word => word.length >= minWordLength && word.length <= maxWordLength);
     
-        const fourLetterWords = words.filter(word => word.length === 3);
-    
-        return fourLetterWords;
+        return filteredWords;
+    };
+
+    function handleDifficultyChange(e) {
+        const selectedDifficulty = e.target.value;
+        setDifficulty(selectedDifficulty);
     }
-    
 
     function startTimerCountdown() {
         intervalRef.current = setInterval(() => {
@@ -136,7 +133,7 @@ const StartGame = () => {
             } else {
                 return 'text-red-500'
             }
-        }  else if (wordIdx === wordIndex && currCharIndex <= wordsCount[wordIndex].length) {
+        } else if (wordIdx === wordIndex && currCharIndex <= wordsCount[wordIndex].length) {
             return 'text-gray-400'
         } else if (wordIdx === wordIndex && currCharIndex > wordsCount[wordIndex].length) {
             return 'bg-red-300'
@@ -146,7 +143,7 @@ const StartGame = () => {
     };
 
     function refreshWords() {
-        setWordsCount(generateRandomWords());
+        setWordsCount(generateRandomWords(difficulty));
         clearInterval(intervalRef.current);
 
         setCountdown(selectedTime);
@@ -172,31 +169,48 @@ const StartGame = () => {
 
     return (
         <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
-            {!gameEnded ? (
+            {!statusGame ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
-
-            {!gameEnded ? (
-               <div className='flex flex-row justify-end mr-[150px] mb-3 w-full pr-5'>
-               <label htmlFor="timeSelect" className="text-[#D1D0C5] text-xl">
-                   Select seconds:
-               </label>
-               <select
-                   id="timeSelect"
-                   className="ml-2  bg-zinc-800 text-amber-300 outline-none"
-                   onChange={handleTimeChange}
-                   value={selectedTime}
-               >
-                        <option value={10} className="text-[#D1D0C5]">10s</option>
-                        <option value={15} className="text-[#D1D0C5]">15s</option>
-                        <option value={30} className="text-[#D1D0C5]">30s</option>
-               </select>
-           </div>
+            {!statusGame ? (
+                <div className='flex flex-row justify-end mr-[150px] mb-3 w-full pr-5 space-x-4'>
+                    <div className="flex items-center">
+                        <label htmlFor="timeSelect" className="text-[#D1D0C5] text-xl">
+                            Select seconds:
+                        </label>
+                        <select
+                            id="timeSelect"
+                            className="ml-2 bg-zinc-800 text-amber-300 outline-none"
+                            onChange={handleTimeChange}
+                            value={selectedTime}
+                        >
+                            <option value={10} className="text-[#D1D0C5]">10s</option>
+                            <option value={15} className="text-[#D1D0C5]">15s</option>
+                            <option value={30} className="text-[#D1D0C5]">30s</option>
+                        </select>
+                    </div>
+                    <div className="flex items-center">
+                        <label htmlFor="difficultySelect" className="text-[#D1D0C5] text-xl">
+                            Difficulty:
+                        </label>
+                        <select
+                            id="difficultySelect"
+                            className="ml-2 bg-zinc-800 text-amber-300 outline-none"
+                            onChange={handleDifficultyChange}
+                            value={difficulty}
+                        >
+                            <option value='easy' className="text-[#D1D0C5]">Easy</option>
+                            <option value='medium' className="text-[#D1D0C5]">Medium</option>
+                            <option value='hard' className="text-[#D1D0C5]">Hard</option>
+                        </select>
+                    </div>
+                </div>
             ) : null}
+
             <div className="mx-auto text-center px-[100px]">
-                {!gameEnded ? (
+                {!statusGame ? (
                     <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {wordsCount.map((word, i) => (
@@ -212,7 +226,7 @@ const StartGame = () => {
                         </div>
                     </div>
                 ) : null}
-                {!gameEnded ? (
+                {!statusGame ? (
                     <div className="mt-4">
                         <button className="px-4 py-2" onClick={refreshWords}>
                             <i className='bx bx-refresh text-5xl text-[#D1D0C5] mt-5'></i>
@@ -230,7 +244,7 @@ const StartGame = () => {
                     </div>
                 ) : null}
 
-                {gameEnded ? (
+                {statusGame ? (
                     <EndGame
                         correctWord={correctWord}
                         incorrectWord={incorrentWord}

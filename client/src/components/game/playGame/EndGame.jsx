@@ -12,7 +12,7 @@ const EndGame = ({
     const acc = (Math.round((correctWord / (correctWord + incorrectWord)) * 100));
 
 
-    const wpm = (((((correctWord) + acc) / 5) / 0.30)).toFixed(2);
+    const wpm = (((((correctWord) + acc) / 5) / 0.45)).toFixed(2);
 
     let textToShow;
  
