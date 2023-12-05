@@ -17,7 +17,8 @@ const UserPlayGame = () => {
     const [statusGame, setStatusGame] = useState(false);
     const [inputFocused, setInputFocused] = useState(false);
     const [currCharIndex, setCurrCharIndex] = useState(-1);
-    const [currChar, setCurrChar] = useState('')
+    const [currChar, setCurrChar] = useState('');
+    const [shouldCapitalize, setShouldCapitalize] = useState(false);
 
 
     const textInput = useRef(null);
@@ -49,21 +50,26 @@ const UserPlayGame = () => {
         return wordsArray;
     };
 
-    function handleLetterTyping({ keyCode, key }) {
+    function handleLetterTyping(e) {
+        const { keyCode, key, nativeEvent } = e;
+    
         if (keyCode === 32) {
             checkMatchingWords();
-            setCurrentInputValue('')
+            setCurrentInputValue('');
             setWordIndex(wordIndex + 1);
             setCurrCharIndex(-1);
+        } else if (keyCode === 20 && nativeEvent) {
+            const capsLockActive = nativeEvent.getModifierState('CapsLock');
+            setShouldCapitalize(capsLockActive);
         } else if (keyCode === 8) {
             setCurrCharIndex(currCharIndex - 1);
-            setCurrChar('')
+            setCurrChar('');
         } else {
             setCurrCharIndex(currCharIndex + 1);
             setCurrChar(key);
-        };
-    };
-
+        }
+    }
+    
     function checkMatchingWords() {
         const word = words[wordIndex];
         const match = word === currentInputValue.trim();

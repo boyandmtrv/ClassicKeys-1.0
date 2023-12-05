@@ -4,9 +4,9 @@ import { generate } from 'random-words'
 import * as gameService from "../../services/gameService";
 import wordHelpers from '../../utils/wordUtils';
 import { toast } from "react-toastify";
+import randomQuotes from 'random-quotes';
 
 const Create = () => {
-    
     const navigate = useNavigate();
 
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
@@ -54,10 +54,20 @@ const Create = () => {
         document.getElementById('userText').value = sentence;
     };
 
-    function onClick(e) {
+    function generateRandomQuotes() {
+        const quotesArray = randomQuotes();
+        const quoteText = quotesArray.body; 
+        document.getElementById('userText').value = quoteText;
+    }
+    
+    function onClickGenerateWords(e) {
         e.preventDefault();
-
         generateRandomWords();
+    }
+
+    function onClickGenerateQuotes(e) {
+        e.preventDefault();
+        generateRandomQuotes();
     }
 
     return (
@@ -76,7 +86,8 @@ const Create = () => {
                             placeholder="Type your words here"
                         />
                     </div>
-                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-96 h-12 font-black px-2 mt-10 text-xl text-[#D1D0C5]" onClick={onClick}>Generate random sentence</button>
+                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-md text-[#D1D0C5]" onClick={onClickGenerateWords}>Generate random words</button>
+                    <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-4 ml-4 text-md text-[#D1D0C5]" onClick={onClickGenerateQuotes}>Generate random quote</button>
                 </div>
                 <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
