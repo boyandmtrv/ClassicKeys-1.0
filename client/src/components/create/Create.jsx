@@ -4,7 +4,7 @@ import { generate } from 'random-words'
 import * as gameService from "../../services/gameService";
 import wordHelpers from '../../utils/wordUtils';
 import { toast } from "react-toastify";
-import randomQuotes from 'random-quotes';
+import fetchRandomQuote from '../../utils/randomQuotes';
 
 const Create = () => {
     const navigate = useNavigate();
@@ -54,19 +54,18 @@ const Create = () => {
         document.getElementById('userText').value = sentence;
     };
 
-    function generateRandomQuotes() {
-        const quotesArray = randomQuotes();
-        let quoteText = quotesArray.body;
-        const words = quoteText.split(' ');
+    async function generateRandomQuotes() {
+        try {
+            const quote = await fetchRandomQuote();
 
-        while (quoteText.length < 200) {
-            const additionalWord = randomQuotes().body.split(' ')[0];
-            words.push(additionalWord);
-            quoteText = words.join(' ');
+            if (quote !== '') {
+                document.getElementById('userText').value = quote;
+            }
+        } catch (err) {
+            console.log("Error generating quote: ", err);
         }
-    
-        document.getElementById('userText').value = quoteText;
     }
+    
     
     
     function onClickGenerateWords(e) {
