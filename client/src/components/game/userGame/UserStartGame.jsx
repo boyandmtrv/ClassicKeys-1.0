@@ -15,26 +15,35 @@ const UserPlayGame = () => {
     const [correctWord, setCorrectWord] = useState(0);
     const [incorrentWord, setIncorrectWord] = useState(0);
     const [statusGame, setStatusGame] = useState(false);
+    const [gameEnded, setGameEnded] = useState(false);
     const [inputFocused, setInputFocused] = useState(false);
     const [currCharIndex, setCurrCharIndex] = useState(-1);
     const [currChar, setCurrChar] = useState('');
     const [shouldCapitalize, setShouldCapitalize] = useState(false);
 
-
     const textInput = useRef(null);
     const intervalRef = useRef();
 
     useEffect(() => {
-        if (countdown === 0) {
+        if (countdown === 0 && statusGame) {
             setStatusGame(true);
         }
-    }, [countdown]);
+    }, [countdown, statusGame]);
 
     useEffect(() => {
-        if (statusGame === false) {
+        if ((wordIndex !== words.length)) {
+            setGameEnded(false);
+        } else if (wordIndex === words.length) {
+            setGameEnded(true)
+        };
+    
+    }, [wordIndex, gameEnded]);
+
+    useEffect(() => {
+        if (gameEnded === false) {
             textInput.current.focus();
         }
-    }, [statusGame]);
+    }, [gameEnded]);
 
     useEffect(() => {
         return () => clearInterval(intervalRef.current);
@@ -52,7 +61,7 @@ const UserPlayGame = () => {
 
     function handleLetterTyping(e) {
         const { keyCode, key, nativeEvent } = e;
-    
+
         if (keyCode === 32) {
             checkMatchingWords();
             setCurrentInputValue('');
@@ -69,7 +78,7 @@ const UserPlayGame = () => {
             setCurrChar(key);
         }
     }
-    
+
     function checkMatchingWords() {
         const word = words[wordIndex];
         const match = word === currentInputValue.trim();
@@ -150,14 +159,14 @@ const UserPlayGame = () => {
     };
     return (
         <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
-            {!statusGame ? (
+            {!gameEnded ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
 
             <div className="mx-auto text-center px-[100px]">
-                {!statusGame ? (
+                {!gameEnded ? (
                     <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {words.map((word, i) => (
@@ -173,7 +182,7 @@ const UserPlayGame = () => {
                         </div>
                     </div>
                 ) : null}
-                {!statusGame ? (
+                {!gameEnded ? (
                     <div className="mt-10">
                         <div className="mt-5">
                             <input
@@ -188,7 +197,7 @@ const UserPlayGame = () => {
                     </div>
                 ) : null}
 
-                {statusGame ? (
+                {gameEnded ? (
                     <UserEndGame
                         correctWord={correctWord}
                         incorrectWord={incorrentWord}
