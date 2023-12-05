@@ -56,9 +56,18 @@ const Create = () => {
 
     function generateRandomQuotes() {
         const quotesArray = randomQuotes();
-        const quoteText = quotesArray.body; 
+        let quoteText = quotesArray.body;
+        const words = quoteText.split(' ');
+
+        while (quoteText.length < 200) {
+            const additionalWord = randomQuotes().body.split(' ')[0];
+            words.push(additionalWord);
+            quoteText = words.join(' ');
+        }
+    
         document.getElementById('userText').value = quoteText;
     }
+    
     
     function onClickGenerateWords(e) {
         e.preventDefault();

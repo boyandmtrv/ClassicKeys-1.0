@@ -13,6 +13,7 @@ const StartGame = () => {
     const [correctWord, setCorrectWord] = useState(0);
     const [incorrentWord, setIncorrectWord] = useState(0);
     const [statusGame, setStatusGame] = useState(false);
+    const [gameEnded, setGameEnded] = useState(false);
     const [inputFocused, setInputFocused] = useState(false);
     const [currCharIndex, setCurrCharIndex] = useState(-1);
     const [currChar, setCurrChar] = useState('')
@@ -28,16 +29,31 @@ const StartGame = () => {
     }, []);
 
     useEffect(() => {
-        if (countdown === 0) {
+        if (countdown === 0 && statusGame) {
             setStatusGame(true);
         }
-    }, [countdown]);
+    }, [countdown, statusGame]);
 
     useEffect(() => {
-        if (statusGame === false) {
+        if (countdown === 0 && !gameEnded) {
+            setStatusGame(true);
+        }
+    }, [countdown, gameEnded]);
+
+    useEffect(() => {
+        if ((wordIndex !== wordsCount.length)) {
+            setGameEnded(false);
+        } else if (wordIndex === wordsCount.length) {
+            setGameEnded(true)
+        };
+    
+    }, [wordIndex, gameEnded]);
+
+    useEffect(() => {
+        if (gameEnded === false) {
             textInput.current.focus();
         }
-    }, [statusGame]);
+    }, [gameEnded]);
 
     useEffect(() => {
         return () => clearInterval(intervalRef.current);
@@ -46,9 +62,13 @@ const StartGame = () => {
 
     function generateRandomWords() {
         const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
-
-        return words;
-    };
+        console.log(words);
+    
+        const fourLetterWords = words.filter(word => word.length === 3);
+    
+        return fourLetterWords;
+    }
+    
 
     function startTimerCountdown() {
         intervalRef.current = setInterval(() => {
@@ -152,13 +172,13 @@ const StartGame = () => {
 
     return (
         <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
-            {!statusGame ? (
+            {!gameEnded ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
 
-            {!statusGame ? (
+            {!gameEnded ? (
                <div className='flex flex-row justify-end mr-[150px] mb-3 w-full pr-5'>
                <label htmlFor="timeSelect" className="text-[#D1D0C5] text-xl">
                    Select seconds:
@@ -176,7 +196,7 @@ const StartGame = () => {
            </div>
             ) : null}
             <div className="mx-auto text-center px-[100px]">
-                {!statusGame ? (
+                {!gameEnded ? (
                     <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
                         <div className="">
                             {wordsCount.map((word, i) => (
@@ -192,7 +212,7 @@ const StartGame = () => {
                         </div>
                     </div>
                 ) : null}
-                {!statusGame ? (
+                {!gameEnded ? (
                     <div className="mt-4">
                         <button className="px-4 py-2" onClick={refreshWords}>
                             <i className='bx bx-refresh text-5xl text-[#D1D0C5] mt-5'></i>
@@ -210,7 +230,7 @@ const StartGame = () => {
                     </div>
                 ) : null}
 
-                {statusGame ? (
+                {gameEnded ? (
                     <EndGame
                         correctWord={correctWord}
                         incorrectWord={incorrentWord}
