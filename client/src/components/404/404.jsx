@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
     return (
 
-        <div className="bg-zinc-800">
+        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900">
             <div className="w-full h-screen flex items-center justify-center mt-[-112px]">
-                <div className="bg-zinc-800 shadow p-12 border-2 border-black rounded-md border-b-8 border-l-8">
+                <div className="bg-transparent shadow p-12 border-2 border-black rounded-md border-b-8 border-l-8">
                     <div className="text-center">
                         <h1 className="text-9xl font-bold text-amber-300">404</h1>
                         <h1 className="text-6xl font-medium py-8 text-white">Oops! Page not found</h1>

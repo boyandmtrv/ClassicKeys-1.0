@@ -153,7 +153,7 @@ const UserPlayGame = () => {
         };
     };
     return (
-        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
+        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-gradient-to-br from-zinc-800 to-zinc-900">
             {!statusGame ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
@@ -183,7 +183,7 @@ const UserPlayGame = () => {
                             <input
                                 type="text"
                                 ref={textInput}
-                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-zinc-800 text-zinc-200 border-b-2 border-ra"
+                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-transparent text-zinc-200 border-b-2 border-ra"
                                 onKeyDown={handleLetterTyping}
                                 value={currentInputValue}
                                 onChange={inputTypingValue}

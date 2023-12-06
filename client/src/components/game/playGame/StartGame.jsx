@@ -172,7 +172,7 @@ const StartGame = () => {
     }
 
     return (
-        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-zinc-800">
+        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-gradient-to-br from-zinc-800 to-zinc-900">
             {!statusGame ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
@@ -186,13 +186,13 @@ const StartGame = () => {
                         </label>
                         <select
                             id="timeSelect"
-                            className="ml-2 bg-zinc-800 text-amber-300 outline-none"
+                            className="ml-2 bg-transparent text-amber-300 outline-none"
                             onChange={handleTimeChange}
                             value={selectedTime}
                         >
-                            <option value={10} className="text-[#D1D0C5]">10s</option>
-                            <option value={15} className="text-[#D1D0C5]">15s</option>
-                            <option value={30} className="text-[#D1D0C5]">30s</option>
+                            <option value={10} className="text-[#D1D0C5] bg-zinc-800 to-zinc-900">10s</option>
+                            <option value={15} className="text-[#D1D0C5] bg-zinc-800">15s</option>
+                            <option value={30} className="text-[#D1D0C5] bg-zinc-800">30s</option>
                         </select>
                     </div>
                     <div className="flex items-center">
@@ -201,13 +201,13 @@ const StartGame = () => {
                         </label>
                         <select
                             id="difficultySelect"
-                            className="ml-2 bg-zinc-800 text-amber-300 outline-none"
+                            className="ml-2 bg-transparent text-amber-300 outline-none"
                             onChange={handleDifficultyChange}
                             value={difficulty}
                         >
-                            <option value='easy' className="text-[#D1D0C5]">Easy</option>
-                            <option value='medium' className="text-[#D1D0C5]">Medium</option>
-                            <option value='hard' className="text-[#D1D0C5]">Hard</option>
+                            <option value='easy' className="text-[#D1D0C5] bg-zinc-800">Easy</option>
+                            <option value='medium' className="text-[#D1D0C5] bg-zinc-800">Medium</option>
+                            <option value='hard' className="text-[#D1D0C5] bg-zinc-800">Hard</option>
                         </select>
                     </div>
                 </div>
@@ -239,7 +239,7 @@ const StartGame = () => {
                             <input
                                 type="text"
                                 ref={textInput}
-                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-zinc-800 text-zinc-200 border-b-2 border-ra"
+                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-transparent text-zinc-200 border-b-2 border-ra"
                                 onKeyDown={handleLetterTyping}
                                 value={currentInputValue}
                                 onChange={inputTypingValue}

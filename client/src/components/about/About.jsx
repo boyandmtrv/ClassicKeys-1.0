@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <div className="bg-zinc-800">
+        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900">
             <div className="w-full h-screen flex justify-center items-center mt-[-112px]">
                 <div className="flex space-x-8 mt-[9%] m-[7%]">
                     <div className="p-8 mb-10 border-2 bg-[#D1D0C5] border-black rounded-md border-b-8 border-l-8">
@@ -51,7 +51,7 @@ const About = () => {
                                 <i className='bx bxl-github border-2 border-black rounded-md border-b-4 border-l-4 w-16  ml-7 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'></i>
                             </Link>
 
-                            <Link to="https://www.linkedin.com/in/boyan-dimitrov-4402b4179/" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#D1D0C5] hover:text-black mt-5">
+                            <Link to="https://www.linkedin.com/in/boyan-dimitrov-4402b4179/" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#D1D0C5] hover:text-black">
                                 <i className='bx bxl-linkedin border-2 border-black rounded-md border-b-4 border-l-4 w-16  ml-7 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'></i>
                             </Link>
                         </div>

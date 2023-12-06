@@ -18,7 +18,7 @@ const HomeComponent = () => {
     });
 
     return (
-        <div className="text-neutral-200 bg-zinc-800 w-full h-screen ">
+        <div className="text-neutral-200 bg-gradient-to-br from-zinc-800 to-zinc-900 w-full h-screen ">
             <div className="max-w-[900px] mt-[-112px] h-full mx-auto text-center flex flex-col justify-center ">
                 <h1 className="text-8xl absolute top-[40%]" >{text}
                     <div className="text-9xl inline-block text-neutral-200">

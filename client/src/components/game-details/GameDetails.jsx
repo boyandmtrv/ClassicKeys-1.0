@@ -59,7 +59,7 @@ const GameDetails = () => {
 
 
     return (
-        <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
+        <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center bg-gradient-to-br from-zinc-800 to-zinc-900">
             <form className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8">
                 <div className="w-3/5 p-10">
                     <div className="text-left font-bold text-5xl text-white">
@@ -87,7 +87,7 @@ const GameDetails = () => {
                         </div>
                     )}
                 </div>
-                <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
+                <div className="w-2/5 bg-gradient-to-br from-zinc-800 to-zinc-900 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
                         <span className="text-white">Game</span> specs</div>
                     <div className="flex flex-col mt-11">

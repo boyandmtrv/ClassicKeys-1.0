@@ -14,14 +14,14 @@ const AllGames = () => {
   }, []);
 
   return (
-    <div className="text-gray-900 bg-zinc-800 w-full h-screen">
+    <div className="text-gray-900 bg-gradient-to-br from-zinc-800 to-zinc-900 w-full h-screen">
       <div className="p-4 flex justify-center mt-[-112px]">
         <h1 className="text-5xl text-amber-300 mt-[5%]">
           All Created Games
         </h1>
       </div>
       <div className="px-3 py-4 flex justify-center">
-        <table className="w-full text-md bg-zinc-800 text-white shadow-md rounded mb-4">
+        <table className="w-full text-md bg-transparent text-white shadow-md rounded mb-4">
           <tbody>
             <tr className="border-b border-zinc-700 text-2xl text-[#D1D0C5]">
               <th className="text-left p-3 px-5">Game title</th>

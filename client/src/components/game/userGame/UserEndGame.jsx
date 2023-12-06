@@ -54,8 +54,8 @@ const UserEndGame = ({
     });
 
     return (
-        <div className="w-full h-screen bg-zinc-800 flex">
-            <div className="w-[50%] h-screen bg-zinc-800">
+        <div className="w-full h-screen from-zinc-800 to-zinc-900 flex">
+            <div className="w-[50%] h-screen from-zinc-800 to-zinc-900">
                 <animated.h1 className="translate-x-2/4 translate-y-[-50] mt-[25%] text-[120px] text-white" style={headerProps}>
                     <span className="text-black tracking-tighter">
                         <div className="text-white">{textToShow}, {username}</div>
@@ -64,11 +64,10 @@ const UserEndGame = ({
                         <div className="flex space-x-4 mt-10">
                             <animated.button className={linkStyle} onClick={onRetake} style={buttonsProps}>Try again</animated.button>
                         </div>
-                      
                     </div>
                 </animated.h1>
             </div>
-            <div className="w-[45%] h-screen bg-zinc-800 flex flex-col justify-center items-center">
+            <div className="w-[45%] h-screen from-zinc-800 to-zinc-900 flex flex-col justify-center items-center">
                 <animated.div className="w-full h-[75%] flex flex-col items-center justify-between mt-10 ml-[30%] text-gray-500 text-3xl space-y-4" style={statsProps}>
                     <div className="flex flex-col">
                         <p>Correct Words:</p>

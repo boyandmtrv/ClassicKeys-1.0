@@ -79,7 +79,7 @@ const Create = () => {
     }
 
     return (
-        <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center">
+        <div className="flex flex-col mt-[-112px] items-center w-full justify-center h-screen flex-1 px-20 text-center bg-gradient-to-br from-zinc-800 to-zinc-900">
             <form className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8" onSubmit={createGameSubmitHandler}>
                 <div className="w-3/5 p-10">
                     <div className="text-left font-bold text-5xl text-white">
@@ -97,7 +97,7 @@ const Create = () => {
                     <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-10 text-md text-[#D1D0C5]" onClick={onClickGenerateWords}>Generate random words</button>
                     <button className="border-2 border-black rounded-md border-b-4 border-l-4 w-64 h-12 font-black px-2 mt-4 ml-4 text-md text-[#D1D0C5]" onClick={onClickGenerateQuotes}>Generate random quote</button>
                 </div>
-                <div className="w-2/5 bg-zinc-800 text-[#D1D0C5] py-24 px-12">
+                <div className="w-2/5 bg-gradient-to-br from-zinc-800 to-zinc-900 text-[#D1D0C5] py-24 px-12">
                     <div className="text-center font-bold text-4xl">
                         <span className="text-white">Specify</span> the game
                     </div>

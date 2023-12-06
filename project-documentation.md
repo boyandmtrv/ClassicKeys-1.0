@@ -64,11 +64,17 @@
 
 
 ## Play the Game
-Each user is privileged play the main typing game and he/she can choose between the following options:
+Each user is privileged play the main typing game 
+### Options:
     - Depending on the user's choice, the user can choose how long the test will continue, by selecting the seconds option
     - Easily generating new sentences, by his / her preferences
     - Switching between difficulty levels - each level has different words, which are dynamically changed and progressively harder.
-    - Ending test screen - displaying the following results, when the time in seconds ends:
+### Game Typing Dynamics
+     - Each word is highlighted to make it easy for the user to follow along.
+     - If a character is misspelled, the entire word turns red, highlighting the error.
+     - A cursor follows each letter as the user types, providing a visual guide.
+    
+### Ending test screen - displaying the following results, when the time in seconds ends:
         - Correct and Incorrect words
         - Percentage of accuracy
         - Words Per Minute Calculation
