@@ -134,10 +134,13 @@ If you need to customize the server or client configurations, refer to the respe
 - MIT License
 
 ## Screenshots:
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/7e9f184b-747b-4037-aba9-4dde3fa84d45)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/1ec9d138-39bc-48b1-a033-35562251107a)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/c8dde3e5-3025-47c8-bce1-fdd432de1651)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/2134c8e1-4c94-49f8-aaaa-ac957c9ae804)
+![image](https://github.com/boyandmtrv/Clik/assets/122356573/d2ac86c0-8675-4074-8b0f-91d23ce243b7)
+![image](https://github.com/boyandmtrv/Clik/assets/122356573/fbc350e3-7507-4ec1-9767-8ddacce12dda)
+![image](https://github.com/boyandmtrv/Clik/assets/122356573/8a635781-332d-4e0b-b0f4-40f8b9a08538)
+![image](https://github.com/boyandmtrv/Clik/assets/122356573/b42651cc-9bfc-40f0-b510-3a6c7b685578)
+![image](https://github.com/boyandmtrv/Clik/assets/122356573/26e8fd11-85e6-4f0f-a103-503c417fc7cf)
+
+
 
 
 
