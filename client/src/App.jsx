@@ -1,6 +1,5 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-
 import { AuthProvider } from './contexts/AuthContext';
 
 import Header from './components/header/Header';
