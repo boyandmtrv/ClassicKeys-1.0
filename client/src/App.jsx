@@ -46,7 +46,6 @@ function App() {
                             <Route path={Paths.Welcome} element={<Welcome />}></Route>
                             <Route path={Paths.Play} element={<GameController />}></Route>
                             <Route path={Paths.UserPlay} element={<UserPlayGame />}></Route>
-                           
                         </Route>
                     </Routes>
                 </div>

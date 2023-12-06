@@ -26,22 +26,25 @@ const RegisterComponent = () => {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const {email, password, repeatPassword } = values;
+        const { email, username, password, repeatPassword } = values;
 
         if (password !== repeatPassword) {
-            console.error('Password mismatch');
+            console.log('Password mismatch');
             toast.error('Password mismatch');
         } else if (email.length < 5) {
-            console.error('Email too short');
+            console.log('Email too short');
             toast.error('Email must be at least 5 characters long.');
         } else if (password.length < 6) {
-            console.error('Password too short');
+            console.log('Password too short');
             toast.error('Password must be at least 6 characters long.');
+        } else if (username.length < 3) {
+            console.log('Username too short');
+            toast.error('Username must be at least 3 characters long.');
         } else {
             try {
                 await registerHandler(values);
             } catch (error) {
-                console.error('Registration failed:', error.message);
+                console.log('Registration failed:', error.message);
                 toast.error(`Registration failed: ${error.message}`);
             }
         }
@@ -63,6 +66,7 @@ const RegisterComponent = () => {
                             value={values[RegisterFormKeys.Email]}
                             onChange={onChangeHandler}
                             placeholder='E-mail'
+                            required
                         />
                         <i className='bx bx-envelope  absolute -translate-x-2/4 text-xl right-5 top-[15%] text-[#D1D0C5]'></i>
                     </div>
@@ -76,6 +80,7 @@ const RegisterComponent = () => {
                             value={values[RegisterFormKeys.Username]}
                             onChange={onChangeHandler}
                             placeholder='Username'
+                            required
                         />
                         <i className='bx bxl-ok-ru absolute -translate-x-2/4 text-xl right-5 top-[15%] text-[#D1D0C5]'></i>
                     </div>
@@ -89,6 +94,7 @@ const RegisterComponent = () => {
                             value={values[RegisterFormKeys.Password]}
                             onChange={onChangeHandler}
                             placeholder='Password'
+                            required={true}
                         />
                         <i className='bx bx-lock-alt absolute -translate-x-2/4 text-xl right-5 top-[15%] text-[#D1D0C5]' ></i>
                     </div>
@@ -102,6 +108,7 @@ const RegisterComponent = () => {
                             value={values[RegisterFormKeys.RepeatPassword]}
                             onChange={onChangeHandler}
                             placeholder='Repeat password'
+                            required
                         />
                         <i className='bx bx-key  absolute -translate-x-2/4 text-xl right-5 top-[15%] text-[#D1D0C5]' ></i>
                     </div>
