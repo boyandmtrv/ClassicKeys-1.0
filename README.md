@@ -2,6 +2,16 @@
 
 ## ClassicKeys 1.0 is a minimalistic and retro by-design game, a responsive React application, for playing and training your typing abilities and creating custom games, which can be played by you and other users.
 
+## Contents
+- [Tech Stack](##Tech-Stack)
+- [Libraries and Dependencies](##Libraries-and-Dependencies)
+- [Features](##Features)
+- [Play the Game](##Play-the-Game) 
+- [App Structure](##App-Structure)  
+- [Server Documentation](##Server-Documentation) 
+- [Run the App](##Run-the-App) 
+- [Screenshot](##Screenshots) 
+
 ## Tech Stack
 ### Front-end:
   - React: Used for building the user interface and application functionalities.
@@ -123,7 +133,7 @@ If you need to customize the server or client configurations, refer to the respe
 ## License
 - MIT License
 
-## Screenshot:
+## Screenshots:
 ![image](https://github.com/boyandmtrv/Clik/assets/122356573/7e9f184b-747b-4037-aba9-4dde3fa84d45)
 ![image](https://github.com/boyandmtrv/Clik/assets/122356573/1ec9d138-39bc-48b1-a033-35562251107a)
 ![image](https://github.com/boyandmtrv/Clik/assets/122356573/c8dde3e5-3025-47c8-bce1-fdd432de1651)
