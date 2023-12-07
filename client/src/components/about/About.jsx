@@ -39,7 +39,7 @@ const About = () => {
                             <p className="text-amber-300 text-4xl font-semibold pt-10 px-6">Stats</p>
                             <br />
                             <p className="text-white text-opacity-50 font-medium text-xl px-4">
-                                - wpm - total amount of characters in the correctly typed words (exincluding spaces) <br />
+                                - wpm - total amount of characters in the correctly typed words (excluding spaces) <br />
                                 - acc - percentage of correctly pressed keys.
                                 <br />
                                 - words - correct words / incorrect words. Calculated after the test has ended.
