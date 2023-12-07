@@ -1,7 +1,10 @@
 import { useContext, useEffect } from "react";
-import * as authService from '../../services/authSevice';
 import { useNavigate } from "react-router-dom";
+
+import * as authService from '../../services/authSevice';
+
 import Paths from "../../paths";
+
 import AuthContext from "../../contexts/AuthContext";
 
 const Logout = () => {
@@ -13,7 +16,7 @@ const Logout = () => {
         authService.logout()
             .then(() => {
                 logoutHandler();
-                navigate(Paths.Home)
+                navigate(Paths.Home);
             })
             .catch(() => {
                 logoutHandler();
@@ -22,7 +25,6 @@ const Logout = () => {
     }, []);
 
     return null;
-
 };
 
 export default Logout;

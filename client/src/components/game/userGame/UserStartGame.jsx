@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import UserEndGame from "./UserEndGame";
 
+import UserEndGame from "./UserEndGame";
 
 const UserPlayGame = () => {
     const location = useLocation();
@@ -27,13 +27,13 @@ const UserPlayGame = () => {
     useEffect(() => {
         if (countdown === 0) {
             setStatusGame(true);
-        }
+        };
     }, [countdown]);
 
     useEffect(() => {
         if (statusGame === false) {
             textInput.current.focus();
-        }
+        };
     }, [statusGame]);
 
     useEffect(() => {
@@ -104,6 +104,26 @@ const UserPlayGame = () => {
         }, 1000);
     };
 
+    function getCharClass(word, wordIdx, charIndex, char) {
+
+        const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
+
+        if (correctWord) {
+
+            if (char === currChar) {
+                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
+            } else {
+                return 'text-red-500'
+            }
+        } else if (wordIdx === wordIndex && currCharIndex <= words[wordIndex].length) {
+            return 'text-gray-400'
+        } else if (wordIdx === wordIndex && currCharIndex > words[wordIndex].length) {
+            return 'bg-red-300'
+        } else {
+            return '';
+        };
+    };
+
     function refreshWords() {
         setWords(generateWords());
         clearInterval(intervalRef.current);
@@ -133,25 +153,7 @@ const UserPlayGame = () => {
         setInputFocused(false);
     }
 
-    function getCharClass(word, wordIdx, charIndex, char) {
 
-        const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
-
-        if (correctWord) {
-
-            if (char === currChar) {
-                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
-            } else {
-                return 'text-red-500'
-            }
-        } else if (wordIdx === wordIndex && currCharIndex <= words[wordIndex].length) {
-            return 'text-gray-400'
-        } else if (wordIdx === wordIndex && currCharIndex > words[wordIndex].length) {
-            return 'bg-red-300'
-        } else {
-            return '';
-        };
-    };
     return (
         <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-gradient-to-br from-zinc-800 to-zinc-900">
             {!statusGame ? (
@@ -159,11 +161,10 @@ const UserPlayGame = () => {
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
-
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
                     <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
-                        <div className="">
+                        <div>
                             {words.map((word, i) => (
                                 <span key={i}>
                                     <span>

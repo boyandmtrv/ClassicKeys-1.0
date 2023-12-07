@@ -10,7 +10,6 @@ import Paths from '../paths';
 
 
 const AuthContext = createContext();
-
 export const AuthProvider = ({
     children
 }) => {
@@ -27,8 +26,7 @@ export const AuthProvider = ({
         } catch (err) {
             console.error('Login failed:', err.message);
             toast.error(`Login failed: ${err.message}`);
-        }
-
+        };
     };
 
     const registerHandler = async (values) => {
@@ -41,17 +39,14 @@ export const AuthProvider = ({
         } catch (err) {
             console.error('Registration failed:', err.message);
             toast.error(`Registation failed: ${err.message}`);
-        }
+        };
     };
 
     const logoutHandler = () => {
         setAuthData({});
-
         localStorage.removeItem('accessToken');
-
         navigate(Paths.Home)
     };
-
 
     const values = {
         loginHandler,
@@ -63,13 +58,12 @@ export const AuthProvider = ({
         isAuth: !!authData.accessToken
     };
 
-
     return (
         <>
             <AuthContext.Provider value={values}>
                 {children}
             </AuthContext.Provider>
-            <ToastContainer 
+            <ToastContainer
                 position="top-right"
                 autoClose={2500}
                 hideProgressBar={true}
@@ -81,7 +75,7 @@ export const AuthProvider = ({
                 theme=""
             />
         </>
-    )
-}
+    );
+};
 
 export default AuthContext;

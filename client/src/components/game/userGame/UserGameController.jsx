@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import UserStartGame from './UserStartGame';
 import UserEndGame from './UserEndGame';
 
@@ -12,7 +13,7 @@ const UserGameController = () => {
 
     function handleGameRefreshStatus() {
         setGameStatus('play');
-    }
+    };
 
     let layout;
 
@@ -26,7 +27,7 @@ const UserGameController = () => {
         <div className="gamePart">
             {layout}
         </div>
-    )
+    );
 };
 
 export default UserGameController;

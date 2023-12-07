@@ -7,12 +7,12 @@ const GameController = () => {
     const [gameStatus, setGameStatus] = useState('play');
 
     function handleGameEndStatus() {
-        setGameStatus('end')
+        setGameStatus('end');
     };
 
     function handleGameRefreshStatus() {
         setGameStatus('play');
-    }
+    };
 
     let layout;
 
@@ -26,7 +26,7 @@ const GameController = () => {
         <div className="gamePart">
             {layout}
         </div>
-    )
+    );
 };
 
 export default GameController;

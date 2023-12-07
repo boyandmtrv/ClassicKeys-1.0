@@ -1,6 +1,6 @@
 import './App.css';
+
 import { Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
 
 import Header from './components/header/Header';
 import Home from './components/home/Home'
@@ -14,12 +14,13 @@ import AllGames from './components/all-games/AllGames';
 import GameDetails from './components/game-details/GameDetails';
 import Welcome from './components/home/Welcome';
 import Logout from './components/user/Logout';
-import Paths from './paths';
-import ErrorBoundary from './errors/ErrorBoundry';
-import AuthGuard from './guards/AuthGuard';
 import About from './components/about/About';
 import NotFound from './components/404/404';
 
+import Paths from './paths';
+import ErrorBoundary from './errors/ErrorBoundry';
+import AuthGuard from './guards/AuthGuard';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
                 </div>
             </AuthProvider>
         </ErrorBoundary>
-    )
-}
+    );
+};
 
 export default App;

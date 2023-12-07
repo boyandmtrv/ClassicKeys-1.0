@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { generate } from 'random-words';
+
 import wordHelpers from '../../../utils/wordUtils';
+
 import EndGame from "./EndGame";
 
 
 const StartGame = () => {
-
     const [wordsCount, setWordsCount] = useState([]);
     const [countdown, setCountdown] = useState(15);
     const [currentInputValue, setCurrentInputValue] = useState('');
@@ -44,6 +45,7 @@ const StartGame = () => {
 
 
     function generateRandomWords(selectedDifficulty) {
+
         let minWordLength, maxWordLength;
         if (selectedDifficulty === 'easy') {
             minWordLength = 3;
@@ -52,13 +54,14 @@ const StartGame = () => {
             minWordLength = 5;
             maxWordLength = 6;
         } else if (selectedDifficulty === 'hard') {
-            minWordLength = 7; 
-            maxWordLength = 8; 
-        }
+            minWordLength = 7;
+            maxWordLength = 8;
+        };
 
         const words = new Array(wordHelpers.NUMBER_OF_WORDS).fill(null).map(() => generate());
+
         const filteredWords = words.filter(word => word.length >= minWordLength && word.length <= maxWordLength);
-    
+
         return filteredWords;
     };
 
@@ -74,7 +77,7 @@ const StartGame = () => {
                     clearInterval(intervalRef.current);
                 } else {
                     return lastSecondCount - 1;
-                }
+                };
             });
         }, 1000);
     };
@@ -83,8 +86,7 @@ const StartGame = () => {
         const selectedTime = parseInt(e.target.value, 10);
         setSelectedTime(selectedTime);
         setCountdown(selectedTime);
-    }
-
+    };
 
     function handleLetterTyping({ keyCode, key }) {
         if (keyCode === 32) {
@@ -133,6 +135,7 @@ const StartGame = () => {
             } else {
                 return 'text-red-500'
             }
+
         } else if (wordIdx === wordIndex && currCharIndex <= wordsCount[wordIndex].length) {
             return 'text-gray-400'
         } else if (wordIdx === wordIndex && currCharIndex > wordsCount[wordIndex].length) {
@@ -145,7 +148,6 @@ const StartGame = () => {
     function refreshWords() {
         setWordsCount(generateRandomWords(difficulty));
         clearInterval(intervalRef.current);
-
         setCountdown(selectedTime);
         setCurrentInputValue('');
         setWordIndex(0);
@@ -160,7 +162,6 @@ const StartGame = () => {
     function retakeTest() {
         setCountdown(selectedTime);
         clearInterval(intervalRef.current);
-
         setCurrentInputValue('');
         setWordIndex(0);
         setCorrectWord(0);
@@ -190,9 +191,15 @@ const StartGame = () => {
                             onChange={handleTimeChange}
                             value={selectedTime}
                         >
-                            <option value={10} className="text-[#D1D0C5] bg-zinc-800 to-zinc-900">10s</option>
-                            <option value={15} className="text-[#D1D0C5] bg-zinc-800">15s</option>
-                            <option value={30} className="text-[#D1D0C5] bg-zinc-800">30s</option>
+                            <option value={10} className="text-[#D1D0C5] bg-zinc-800 to-zinc-900">
+                                10s
+                            </option>
+                            <option value={15} className="text-[#D1D0C5] bg-zinc-800">
+                                15s
+                            </option>
+                            <option value={30} className="text-[#D1D0C5] bg-zinc-800">
+                                30s
+                            </option>
                         </select>
                     </div>
                     <div className="flex items-center">
@@ -205,9 +212,15 @@ const StartGame = () => {
                             onChange={handleDifficultyChange}
                             value={difficulty}
                         >
-                            <option value='easy' className="text-[#D1D0C5] bg-zinc-800">Easy</option>
-                            <option value='medium' className="text-[#D1D0C5] bg-zinc-800">Medium</option>
-                            <option value='hard' className="text-[#D1D0C5] bg-zinc-800">Hard</option>
+                            <option value='easy' className="text-[#D1D0C5] bg-zinc-800">
+                                Easy
+                            </option>
+                            <option value='medium' className="text-[#D1D0C5] bg-zinc-800">
+                                Medium
+                            </option>
+                            <option value='hard' className="text-[#D1D0C5] bg-zinc-800">
+                                Hard
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -216,12 +229,14 @@ const StartGame = () => {
             <div className="mx-auto text-center px-[100px]">
                 {!statusGame ? (
                     <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
-                        <div className="">
+                        <div>
                             {wordsCount.map((word, i) => (
                                 <span key={i}>
-                                    <span className="">
+                                    <span>
                                         {word.split('').map((letter, index) => (
-                                            <span className={getCharClass(word, i, index, letter)} key={index}>{letter}</span>
+                                            <span className={getCharClass(word, i, index, letter)}
+                                                key={index}>{letter}
+                                            </span>
                                         ))}
                                     </span>
                                     <span> </span>
@@ -232,7 +247,9 @@ const StartGame = () => {
                 ) : null}
                 {!statusGame ? (
                     <div className="mt-4">
-                        <button className="px-4 py-2" onClick={refreshWords}>
+                        <button
+                            className="px-4 py-2"
+                            onClick={refreshWords}>
                             <i className='bx bx-refresh text-5xl text-[#D1D0C5] mt-5'></i>
                         </button>
                         <div className="mt-5">
@@ -259,8 +276,7 @@ const StartGame = () => {
             </div>
         </div>
     );
-
-}
+};
 
 export default StartGame;
 

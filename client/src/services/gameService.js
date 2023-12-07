@@ -22,4 +22,4 @@ export const edit = async (gameId, gameData) => {
     return result;
 };
 
-export const remove = async (gameId) => request.del(`${baseUrl}/${gameId}`)
+export const remove = async (gameId) => request.del(`${baseUrl}/${gameId}`);

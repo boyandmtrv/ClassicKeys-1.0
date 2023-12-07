@@ -3,5 +3,5 @@ export const pathToUrl = (path, params) => {
         return acc.replace(`:${param}`, [params[param]])
     }, path);
 
-    return url
+    return url;
 };  

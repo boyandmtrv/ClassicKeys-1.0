@@ -8,11 +8,12 @@ export default function usePersisted(key, defaultValue) {
             return JSON.parse(persistedState);
         };
 
-        return defaultValue
+        return defaultValue;
     });
 
     const setPersistedState = (value) => {
         setState(value);
+
         let serializedValue;
 
         if (typeof value === 'function') {
@@ -20,7 +21,6 @@ export default function usePersisted(key, defaultValue) {
         } else {
             serializedValue = JSON.stringify(value);
         };
-
 
         localStorage.setItem(key, serializedValue);
     };
