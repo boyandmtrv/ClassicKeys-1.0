@@ -10,7 +10,7 @@ import AuthContext from "../../contexts/AuthContext";
 const Logout = () => {
 
     const navigate = useNavigate();
-    const {logoutHandler} = useContext(AuthContext);
+    const { logoutHandler } = useContext(AuthContext);
 
     useEffect(() => {
         authService.logout()
