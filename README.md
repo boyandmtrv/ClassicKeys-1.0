@@ -25,7 +25,7 @@
 ### External APIs:
   - api.quotable.io: Used for generating random quotes.
 ### Deployment
-  - Firebase: Hosting platform.
+  - Vercel: Hosting platform.
 
 ## Libraries and Dependencies
 - react-spring - React library that provides a set of simple, expressive, and high-performance animations for React applications
