@@ -1,6 +1,7 @@
 import * as request from '../lib/request';
 
-const baseUrl = `http://localhost:3030/data/games`;
+const baseUrl = `https://clik-lac.vercel.app/data/games`;
+// const baseUrl = `http://localhost:3030/data/games`;
 
 export const getOne = async (gameId) => {
     const result = await request.get(`${baseUrl}/${gameId}`);
