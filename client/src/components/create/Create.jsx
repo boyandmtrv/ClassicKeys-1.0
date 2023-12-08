@@ -87,8 +87,7 @@ const Create = () => {
                     <div className="text-left font-bold text-5xl text-white">
                         <span className="text-[#D1D0C5]">
                             Create
-                        </span>
-                        your game
+                        </span> your game
                         <div className="border-2 w-10 mt-2 border-amber-300"></div>
                     </div>
                     <div className="flex flex-col items-center">
@@ -115,8 +114,7 @@ const Create = () => {
                     <div className="text-center font-bold text-4xl">
                         <span className="text-white">
                             Specify
-                        </span>
-                        the game
+                        </span> the game
                     </div>
                     <div className="flex flex-col mt-11">
                         <input className="h-12 text-[#D1D0C5] border-2 border-black rounded-md border-b-4 border-l-4 bg-zinc-800 pl-2 placeholder-[#D1D0C5] text-2xl"

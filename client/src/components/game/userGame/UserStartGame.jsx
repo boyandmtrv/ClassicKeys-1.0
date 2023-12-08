@@ -25,6 +25,10 @@ const UserPlayGame = () => {
     const intervalRef = useRef();
 
     useEffect(() => {
+        setWords(generateWords());
+    }, []);
+
+    useEffect(() => {
         if (countdown === 0) {
             setStatusGame(true);
         };
@@ -38,10 +42,6 @@ const UserPlayGame = () => {
 
     useEffect(() => {
         return () => clearInterval(intervalRef.current);
-    }, []);
-
-    useEffect(() => {
-        setWords(generateWords());
     }, []);
 
 
@@ -104,7 +104,7 @@ const UserPlayGame = () => {
         }, 1000);
     };
 
-    function getCharClass(word, wordIdx, charIndex, char) {
+    function getCharClass(wordIdx, charIndex, char) {
 
         const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
 

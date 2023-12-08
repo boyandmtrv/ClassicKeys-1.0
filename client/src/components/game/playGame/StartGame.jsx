@@ -68,7 +68,14 @@ const StartGame = () => {
     function handleDifficultyChange(e) {
         const selectedDifficulty = e.target.value;
         setDifficulty(selectedDifficulty);
-    }
+    };
+
+    function handleTimeChange(e) {
+        const selectedTime = parseInt(e.target.value, 10);
+        setSelectedTime(selectedTime);
+        setCountdown(selectedTime);
+    };
+
 
     function startTimerCountdown() {
         intervalRef.current = setInterval(() => {
@@ -80,12 +87,6 @@ const StartGame = () => {
                 };
             });
         }, 1000);
-    };
-
-    function handleTimeChange(e) {
-        const selectedTime = parseInt(e.target.value, 10);
-        setSelectedTime(selectedTime);
-        setCountdown(selectedTime);
     };
 
     function handleLetterTyping({ keyCode, key }) {
@@ -124,7 +125,7 @@ const StartGame = () => {
         setCurrentInputValue(e.target.value);
     };
 
-    function getCharClass(word, wordIdx, charIndex, char) {
+    function getCharClass(wordIdx, charIndex, char) {
 
         const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
 

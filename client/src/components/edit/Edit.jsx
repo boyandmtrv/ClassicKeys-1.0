@@ -57,8 +57,7 @@ const Edit = () => {
                     <div className="text-left font-bold text-5xl text-[#D1D0C5]">
                         <span
                             className="text-white">You are in
-                        </span>
-                        editing mode, {username}
+                        </span> editing mode, {username}
                         <div className="border-2 w-10 mt-2 border-amber-300"></div>
                     </div>
                     <div className="flex flex-col items-center">
@@ -82,8 +81,7 @@ const Edit = () => {
                         <span
                             className="text-white">
                             Change
-                        </span>
-                        the game
+                        </span> the game
                     </div>
                     <div className="flex flex-col mt-11">
                         <input
