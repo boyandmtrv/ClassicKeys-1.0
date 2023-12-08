@@ -125,7 +125,7 @@ const StartGame = () => {
         setCurrentInputValue(e.target.value);
     };
 
-    function getCharClass(wordIdx, charIndex, char) {
+    function getCharClass(word, wordIdx, charIndex, char) {
 
         const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
 

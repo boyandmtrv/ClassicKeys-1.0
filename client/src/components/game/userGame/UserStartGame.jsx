@@ -50,6 +50,19 @@ const UserPlayGame = () => {
         return wordsArray;
     };
 
+    
+    function startTimerCountdown() {
+        intervalRef.current = setInterval(() => {
+            setCountdown((lastSecondCount) => {
+                if (lastSecondCount === 0) {
+                    clearInterval(intervalRef.current);
+                } else {
+                    return lastSecondCount - 1;
+                }
+            });
+        }, 1000);
+    };
+
     function handleLetterTyping(e) {
         const { keyCode, key, nativeEvent } = e;
     
@@ -68,7 +81,27 @@ const UserPlayGame = () => {
             setCurrCharIndex(currCharIndex + 1);
             setCurrChar(key);
         }
-    }
+    };
+
+    function getCharClass(word, wordIdx, charIndex, char) {
+
+        const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
+
+        if (correctWord) {
+
+            if (char === currChar) {
+                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
+            } else {
+                return 'text-red-500'
+            }
+        } else if (wordIdx === wordIndex && currCharIndex <= words[wordIndex].length) {
+            return 'text-gray-400'
+        } else if (wordIdx === wordIndex && currCharIndex > words[wordIndex].length) {
+            return 'bg-red-300'
+        } else {
+            return '';
+        };
+    };
     
     function checkMatchingWords() {
         const word = words[wordIndex];
@@ -92,37 +125,7 @@ const UserPlayGame = () => {
     };
 
 
-    function startTimerCountdown() {
-        intervalRef.current = setInterval(() => {
-            setCountdown((lastSecondCount) => {
-                if (lastSecondCount === 0) {
-                    clearInterval(intervalRef.current);
-                } else {
-                    return lastSecondCount - 1;
-                }
-            });
-        }, 1000);
-    };
-
-    function getCharClass(wordIdx, charIndex, char) {
-
-        const correctWord = wordIdx === wordIndex && charIndex === currCharIndex && currChar && !statusGame;
-
-        if (correctWord) {
-
-            if (char === currChar) {
-                return 'border-r-2 border-amber-200 text-[#D1D0C5]'
-            } else {
-                return 'text-red-500'
-            }
-        } else if (wordIdx === wordIndex && currCharIndex <= words[wordIndex].length) {
-            return 'text-gray-400'
-        } else if (wordIdx === wordIndex && currCharIndex > words[wordIndex].length) {
-            return 'bg-red-300'
-        } else {
-            return '';
-        };
-    };
+  
 
     function refreshWords() {
         setWords(generateWords());
