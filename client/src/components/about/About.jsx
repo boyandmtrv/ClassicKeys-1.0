@@ -20,7 +20,7 @@ const About = () => {
                             <div className="text-zinc-800 2xl:text-md lg:px-9  2xl:mx-2">
                                 <p>User Information:</p>
                                 <p>Each authenticated user is privileged to:</p>
-                                <p>- Create / Edit / Delete their own game</p>
+                                <p>- Create / Edit / Delete it's own game</p>
                                 <p>- Customize the game by their preferences, choosing difficulty levels and seconds</p>
                                 <p>- Test their own game and games created by other users</p>
                             </div>
@@ -34,7 +34,7 @@ const About = () => {
                             </p>
                             <br />
                             <p className="text-white text-opacity-50 font-medium text-xl mt-2 px-4">
-                                By default, ClassicKeys 1.0 uses 200 words in the English language to generate its tests and the most common seconds pattern. You can change the generated set by resetting the words and easily switch the seconds—all easily accessed in the main game menu.
+                                By default, ClassicKeys 1.0 uses 200 words in the English language to generate its tests, the most common seconds pattern and difficulty levels, which are progressively harder. You can change the generated set by resetting the words and easily switch the seconds—all easily accessed in the main game menu.
                             </p>
                             <p className="text-amber-300 text-4xl font-semibold pt-10 px-6">Stats</p>
                             <br />

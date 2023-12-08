@@ -124,12 +124,10 @@ const RegisterComponent = () => {
                         <p>
                             Already in the
                             <span
-                                className='text-[#D1D0C5]'>
-                                club
+                                className='text-[#D1D0C5]'> club
                             </span>?
                             <Link to='/users/login'
-                                className='text-amber-200 no-underline'>
-                            //Sign in 
+                                className='text-amber-200 no-underline'> //Sign in 
                             </Link> and continue typing
                         </p>
                     </div>
