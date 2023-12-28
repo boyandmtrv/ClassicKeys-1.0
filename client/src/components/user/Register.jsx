@@ -30,6 +30,14 @@ const RegisterComponent = () => {
 
         const { email, username, password, repeatPassword } = values;
 
+        if (password == '') {
+            console.log('Password must not empty string');
+            toast.error('Password must not empty string');
+        } else if (repeatPassword) {
+            console.log('Password must not empty string');
+            toast.error('Password must not empty string');
+        }
+
         if (password !== repeatPassword) {
             console.log('Password mismatch');
             toast.error('Password mismatch');
