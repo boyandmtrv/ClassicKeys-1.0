@@ -11,7 +11,7 @@ const Nav = () => {
     };
 
     return (
-        <nav className="w-16 h-16 text-center flex justify-center items-center border-2 border-black rounded-md border-b-4 border-l-4 relative bg-transparent">
+        <nav className="w-16 h-16 text-center flex justify-center items-center border-2 border-black rounded-md border-b-4 border-l-4 relative bg-[#46617F]">
             <div>
                 <button
                     className="text-[#D1D0C5]"
