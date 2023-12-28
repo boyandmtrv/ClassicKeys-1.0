@@ -38,7 +38,7 @@ const HomeComponent = () => {
     };
 
     return (
-        <div className="text-[#0A1A30] flex flex-col w-full h-screen justify-center items-center" style={{ backgroundImage: 'url("../public/img/classicBg1.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="text-[#0A1A30] flex flex-col w-full h-screen justify-center items-center">
             <div className="flex flex-col">
                 <h1 className="text-white lg:mt-[10%] lg:text-6xl md:text-5xl sm:text-4xl min-[320px]:text-3xl md:mt-[10%] sm:mt-[30%] min-[320px]:mt-[5%]">{welcomeText}</h1>
             </div>
