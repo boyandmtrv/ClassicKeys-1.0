@@ -7,7 +7,7 @@ const NavLinks = () => {
     const { isAuth } = useContext(AuthContext);
 
     const linkStyle =
-        "flex items-center justify-center  bg-gradient-to-br from-zinc-900 to-zinc-800 border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] w-16 h-16 p-2 transition duration-500  hover:border-[#D1D0C5] hover:text-amber-200";
+        "flex items-center justify-center bg-[#0A1A30] border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] w-16 h-16 p-2 transition duration-500  hover:border-[#D1D0C5] hover:text-amber-200";
 
     return (
         <>
