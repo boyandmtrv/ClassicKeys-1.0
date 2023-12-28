@@ -1,62 +1,62 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const HomeComponent = () => {
-    const [text] = useTypewriter({
-        words: ['ClasicK', 'ClassixKeo', 'ClassicKeys 1.0'],
-        typeSpeed: 80,
-        deleteSpeed: 40,
-        delaySpeed: 40
-    });
-    const [subText] = useTypewriter({
-        words: [` Chrono Champion Edition`],
+    const [isJumping, setJumping] = useState(false);
+
+    const startJumpingAnimation = () => {
+        setJumping(true);
+    };
+
+    const [text, { isDone }] = useTypewriter({
+        words: [`ClassicKeys 1.0`],
         typeSpeed: 100,
+        delaySpeed: 80,
+        onTypingEnd: startJumpingAnimation,
+    });
+
+    const [welcomeText] = useTypewriter({
+        words: [`Welcome to`],
+        typeSpeed: 50,
         delaySpeed: 80,
     });
 
+    useEffect(() => {
+        if (isDone) {
+            const interval = setInterval(() => {
+                setJumping((prevJumping) => !prevJumping);
+            }, 350);
+
+            return () => clearInterval(interval);
+        }
+    }, [isDone]);
+
+    const jumpingStyle = {
+        transform: isJumping ? "translateY(-20px)" : "translateY(0)",
+        transition: "transform 0.5s ease-in-out",
+    };
+
     return (
-        <div className="text-neutral-200 bg-gradient-to-br from-zinc-800 to-zinc-900 w-full h-screen ">
-            <div className="max-w-[900px] mt-[-112px] h-full mx-auto text-center flex flex-col justify-center ">
-                <h1
-                    className="text-8xl absolute top-[40%]">
-                    {text}
-                    <div className="text-9xl inline-block text-neutral-200">
-                        <Cursor />
-                    </div>
-                </h1>
-                <h1
-                    className="text-3xl absolute top-[55%] left-[38%] text-amber-200">
-                    {subText}
-                </h1>
-                <div className="flex flex-col justify-center top-[57%] right-[41%] absolute items-center mt-10">
-                    <Link
-                        to='/play'
-                        className="text-lg bg-[#D1D0C5] text-zinc-800 w-64 h-10 flex items-center justify-center mr-12 border-2 border-black rounded-md border-b-4 border-l-4 font-black px-2 focus:bg-gray-300 transition duration-500 hover:bg-black hover:text-[#D1D0C5] hover:border-amber-200"
-                    >
-                        /* Start Typing */
-                    </Link>
-                </div>
-                <div className="absolute bottom-0 right-0 mb-4 mr-10 flex items-center">
-                    <Link
-                        to="https://github.com/boyandmtrv"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-3xl text-[#D1D0C5] hover:text-black">
-                        <i
-                            className='bx bxl-github border-2 border-black rounded-md border-b-4 border-l-4 w-16 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'>
-                        </i>
-                    </Link>
-                    <Link
-                        to="https://www.linkedin.com/in/boyan-dimitrov-4402b4179/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-3xl text-[#D1D0C5] ml-12 hover:text-black">
-                        <i
-                            className='bx bxl-linkedin border-2 border-black rounded-md border-b-4 border-l-4 w-16 h-16 flex items-center justify-center transition duration-500 hover:bg-[#D1D0C5] hover:border-amber-200'>
-                        </i>
-                    </Link>
-                </div>
+        <div className="text-[#0A1A30] flex flex-col w-full h-screen justify-center items-center" style={{ backgroundImage: 'url("../public/img/classicBg1.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="flex flex-col">
+                <h1 className="text-white lg:mt-[10%] lg:text-6xl md:text-5xl sm:text-4xl min-[320px]:text-3xl md:mt-[10%] sm:mt-[30%] min-[320px]:mt-[5%]">{welcomeText}</h1>
             </div>
+            <div className="flex flex-col items-center mt-10">
+                <h1 style={jumpingStyle} className=" lg:text-[150px] md:text-8xl sm:text-8xl min-[320px]:text-5xl text-center md:mt-[10%] sm:mt-[10%] min-[320px]:mt-[30%]">
+                    {text}
+                    <Cursor />
+                </h1>
+            </div>
+            <div className="flex flex-col justify-start">
+                <Link
+                    to="/play"
+                    className="text-7xl lg:mt-[80%] md:mt-[100%] sm:mt-[30%] min-[320px]:mt-[80%] bg-[#0B2850] text-[#FFEBAF] w-full flex items-center justify-center border-2 border-black border-b-[12px] rounded-md border-l-[12px] font-black px-2 focus:bg-gray-300 transition duration-500 hover:bg-[#FFEBAF] hover:text-zinc-900 hover:border-white"
+                >
+                   Start
+                </Link>
+            </div>
+            
         </div>
     );
 };
