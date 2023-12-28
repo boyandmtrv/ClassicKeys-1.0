@@ -61,8 +61,8 @@ const RegisterComponent = () => {
     };
 
     return (
-        <div className="w-full h-screen flex justify-center items-center bg-gradient-to-br from-zinc-800 to-zinc-900">
-            <div className="flex flex-col items-center justify-center w-[450px] bg-gradient-to-br from-zinc-900 to-zinc-800 text-white px-[50px] py-10 border-2 border-black rounded-md border-b-8 border-l-8">
+        <div className="w-full h-screen flex justify-center items-center ">
+            <div className="flex flex-col items-center justify-center w-[450px] backdrop-blur text-white px-[50px] py-10 border-2 border-black rounded-md border-b-8 border-l-8">
                 <form
                     onSubmit={onSubmitHandler}>
                     <h1
@@ -71,7 +71,7 @@ const RegisterComponent = () => {
                     </h1>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            className='w-full h-full text-[#F5F7F8] bg-transparent 
                             text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="email"
                             name="email"
@@ -84,7 +84,7 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            className='w-full h-full text-[#F5F7F8] bg-transparent 
                             text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="text"
                             name="username"
@@ -97,7 +97,7 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            className='w-full h-full text-[#F5F7F8] bg-transparent  
                             text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="password"
                             name="password"
@@ -110,7 +110,7 @@ const RegisterComponent = () => {
                     </div>
                     <div className="relative w-full h-[50px] mx-0 my-[30px]">
                         <input
-                            className='w-full h-full text-[#F5F7F8] bg-zinc-800 
+                            className='w-full h-full text-[#F5F7F8] bg-transparent 
                             text-xl pl-5 pr-10 py-5 border-2 border-black rounded-md border-b-8 border-l-8'
                             type="password"
                             name="repeatPassword"
@@ -123,7 +123,7 @@ const RegisterComponent = () => {
                     </div>
                     <div>
                         <button
-                            className="w-6/12 h-10 cursor-pointer text-[15px]  ml-[25%] border-2 border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black"
+                            className="w-6/12 h-10 cursor-pointer text-[15px]  ml-[25%] border-2 bg-transparent  border-black rounded-md border-b-4 border-l-4 text-[#D1D0C5] transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black"
                             onClick={onSubmitHandler}>
                             Register
                         </button>

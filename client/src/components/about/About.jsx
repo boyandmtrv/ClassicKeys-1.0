@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900">
+        <div className="bg-transparent backdrop-blur">
             <div className="w-full h-screen flex justify-center items-center">
                 <div className="flex space-x-8 mt-[9%] m-[7%]">
                     <div className="p-8 mb-10 border-2 bg-[#D1D0C5] border-black rounded-md border-b-8 border-l-8">

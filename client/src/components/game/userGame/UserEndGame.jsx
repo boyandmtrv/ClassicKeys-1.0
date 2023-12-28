@@ -55,7 +55,7 @@ const UserEndGame = ({
         "flex flex-col items-center justify-center border-2 border-black rounded-md border-b-8 border-l-8 text-[#D1D0C5] w-80 h-16 p-2 mb-5 transition duration-300 ease-in-out transform hover:bg-amber-300 hover:text-black";
 
     return (
-        <div className="w-full h-screen from-zinc-800 to-zinc-900 flex">
+        <div className="w-full h-screen flex bg-transparent">
             <div className="w-[50%] h-screen from-zinc-800 to-zinc-900">
                 <animated.h1
                     className="translate-x-2/4 translate-y-[-50] mt-[25%] text-[120px] text-white"

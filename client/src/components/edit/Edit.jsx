@@ -49,9 +49,9 @@ const Edit = () => {
 
 
     return (
-        <div className="flex flex-col  items-center w-full justify-center h-screen flex-1 px-20 text-center bg-gradient-to-br from-zinc-800 to-zinc-900">
+        <div className="flex flex-col items-center w-full justify-center h-screen flex-1 px-20 text-center">
             <form
-                className="bg-zinc-700 shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8"
+                className="backdrop-blur shadow-2xl flex w-2/3 max-w-5xl  border-2 border-black rounded-md border-b-8 border-l-8"
                 onSubmit={editGameSubmitHandler}>
                 <div className="w-3/5 p-10">
                     <div className="text-left font-bold text-5xl text-[#D1D0C5]">
