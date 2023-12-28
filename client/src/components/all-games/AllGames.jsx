@@ -16,7 +16,7 @@ const AllGames = () => {
 
     return (
         <div className="text-gray-900 bg-gradient-to-br from-zinc-800 to-zinc-900 w-full h-screen">
-            <div className="p-4 flex justify-center mt-[-112px]">
+            <div className="p-4 flex justify-center">
                 <h1 className="text-5xl text-amber-300 mt-[5%]">
                     All Created Games
                 </h1>

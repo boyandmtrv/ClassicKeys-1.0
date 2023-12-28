@@ -158,7 +158,7 @@ const UserPlayGame = () => {
 
 
     return (
-        <div className="flex mt-[-112px] flex-col items-center justify-center h-screen bg-gradient-to-br from-zinc-800 to-zinc-900">
+        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-zinc-800 to-zinc-900">
             {!statusGame ? (
                 <div className="text-center p-5 text-6xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>

@@ -61,7 +61,7 @@ const RegisterComponent = () => {
     };
 
     return (
-        <div className="w-full h-screen mt-[-112px] flex justify-center items-center bg-gradient-to-br from-zinc-800 to-zinc-900">
+        <div className="w-full h-screen flex justify-center items-center bg-gradient-to-br from-zinc-800 to-zinc-900">
             <div className="flex flex-col items-center justify-center w-[450px] bg-gradient-to-br from-zinc-900 to-zinc-800 text-white px-[50px] py-10 border-2 border-black rounded-md border-b-8 border-l-8">
                 <form
                     onSubmit={onSubmitHandler}>
