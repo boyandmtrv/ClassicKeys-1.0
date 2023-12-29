@@ -10,7 +10,7 @@ const HomeComponent = () => {
     };
 
     const [text, { isDone }] = useTypewriter({
-        words: [`ClassicKeys 1.0`],
+        words: [`GoblinKeys 1.0`],
         typeSpeed: 100,
         delaySpeed: 80,
         onTypingEnd: startJumpingAnimation,
