@@ -1,6 +1,6 @@
-# Softuni React Project Defence - ClassicKeys 1.0
+# GoblinKeys 1.0
 
-## ClassicKeys 1.0 is a minimalistic and retro by-design game, a responsive React application, for playing and training your typing abilities and creating custom games, which can be played by you and other users.
+## GoblinKeys 1.0 is a minimalistic and retro by-design game, a responsive React application, for playing and training your typing abilities and creating custom games, which can be played by you and other users.
 
 ## Contents
 - [Tech Stack](#Tech-Stack)
