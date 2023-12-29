@@ -176,14 +176,14 @@ const StartGame = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen backdrop-blur">
             {!statusGame ? (
-                <div className="text-center p-5 text-6xl text-[#D1D0C5]">
+                <div className="text-center p-5 lg:text-6xl md:text-5xl sm:text-3xl min-[320px]:text-2xl text-[#D1D0C5]">
                     <h2>{countdown}</h2>
                 </div>
             ) : null}
             {!statusGame ? (
-                <div className='flex flex-row justify-end mr-[150px] mb-3 w-full pr-5 space-x-4'>
+                <div className='flex flex-row justify-end lg:mr-[150px] md:mr-[150px] sm:mr-[150px] min-[320px]:mr-[10px] mb-3 w-full pr-5 space-x-4'>
                     <div className="flex items-center">
-                        <label htmlFor="timeSelect" className="text-[#D1D0C5] text-xl">
+                        <label htmlFor="timeSelect" className="text-[#D1D0C5] lg:text-xl md:text-xl sm:text-xl min-[320px]:text-[10px]">
                             Select seconds:
                         </label>
                         <select
@@ -204,7 +204,7 @@ const StartGame = () => {
                         </select>
                     </div>
                     <div className="flex items-center">
-                        <label htmlFor="difficultySelect" className="text-[#D1D0C5] text-xl">
+                        <label htmlFor="difficultySelect" className="text-[#D1D0C5] lg:text-xl md:text-xl sm:text-xl min-[320px]:text-[10px]">
                             Difficulty:
                         </label>
                         <select
@@ -227,9 +227,9 @@ const StartGame = () => {
                 </div>
             ) : null}
 
-            <div className="mx-auto text-center px-[100px]">
+            <div className="mx-auto text-center  w-full lg:px-[100px] md:px-[100px] sm:px-[50px] min-[320px]:px-[50px]">
                 {!statusGame ? (
-                    <div className="text-gray-500 text-3xl text-justify leading-2 line-clamp-3">
+                    <div className="text-gray-500 lg:text-3xl lg:line-clamp-3 md:text-2xl md:line-clamp-4 sm:text-xl sm:line-clamp-5 min-[320px]:text-md min-[320px]:line-clamp-6 text-justify leading-2 ">
                         <div>
                             {wordsCount.map((word, i) => (
                                 <span key={i}>
@@ -257,7 +257,7 @@ const StartGame = () => {
                             <input
                                 type="text"
                                 ref={textInput}
-                                className="w-[500px] h-[50px] focus:outline-none text-center text-3xl bg-transparent text-zinc-200 border-b-2 border-ra"
+                                className="lg:w-[500px] md:w-[500px] sm:w-[300px] h-[50px] min-[320px]:w-[200px] focus:outline-none text-center text-3xl bg-transparent text-zinc-200 border-b-2"
                                 onKeyDown={handleLetterTyping}
                                 value={currentInputValue}
                                 onChange={inputTypingValue}
