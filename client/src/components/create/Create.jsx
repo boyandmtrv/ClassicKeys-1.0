@@ -164,7 +164,7 @@ const Create = () => {
                             <option value="30">30s</option>
                         </select>
                     </div>
-                    <div className="text-[#D1D0C5] lg:text-xl md:text-xl  sm: text-sm  font-normal justify-center flex gap gap-2 pt-10">
+                    <div className="text-[#D1D0C5] lg:text-xl md:text-xl  sm:text-sm  font-normal justify-center flex gap gap-2 pt-10">
                         <button
                             className="border-2 border-black rounded-md border-b-4 border-l-4 w-36 h-12 font-black px-2 mt-10 bg-amber-400 text-[#D1D0C5]"
                             type="submit"
