@@ -34,23 +34,23 @@ const Welcome = () => {
 
     return (
         <div className="w-full h-scree flex">
-            <div className="w-[65%] h-screen relative border-r-2 border-zinc-700">
-                <h1 className="absolute -translate-x-2/4 translate-y-[-50] ml-[200px] mt-[20%] text-[150px] text-white">
+            <div className="lg:w-[65%] md:w-[70%]  h-screen relative border-r-2 border-zinc-700">
+                <h1 className="absolute -translate-x-2/4 translate-y-[-50] lg:ml-[200px] md:ml-[100px] sm:ml-[250px] min-[320px]:ml-[140px] lg:mt-[30%] md:mt-[30%] sm:mt-[50px] min-[320px]:mt-[70px] lg:text-[150px] md:text-[100px] sm:text-4xl min-[320px]:text-2xl text-white">
                     <span className="mt-[-50px] text-black tracking-widest">
                         <div
                             className="text-white">
                             {text} {userText}
-                            <div className="text-[150px] inline-block text-amber-300">
+                            <div className="lg:text-[150px] md:text-[100px] sm:text-5xl inline-block text-amber-300">
                                 <Cursor />
                             </div>
                         </div>
                     </span>
-                    <div className="text-4xl ml-[10px] text-[#D1D0C5] underline">
+                    <div className="lg:text-4xl md:text-3xl sm:text-sm min-[320px]:text-[12px]  text-[#D1D0C5] underline">
                         {infoText}
                     </div>
                 </h1>
             </div>
-            <div className="w-[50%] h-screen backdrop-blur flex flex-col justify-center items-center text-3xl">
+            <div className="lg:w-[50%] md:w-[50%] sm:w-[100%] min-[320px]:w-full h-screen lg:backdrop-blur md:backdrop-blur flex flex-col justify-center items-center text-3xl">
                 <Link to="/play"
                     className={linkStyle}>
                     Play Game
