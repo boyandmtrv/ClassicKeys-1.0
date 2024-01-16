@@ -125,7 +125,7 @@ To get a local copy, follow these steps:
    ```
    *To open the application locally, enter the following url in the browser field: http://localhost:5173/ or use CTRL + left click in the terminal box*
 
-You can also check out the live version of Huddle by clicking [here](https://goblinkeys.vercel.app/)
+You can also check out the live version of Goblin Keys 1.0 by clicking [here](https://goblinkeys.vercel.app/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
