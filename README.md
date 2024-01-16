@@ -1,144 +1,146 @@
-# GoblinKeys 1.0
+<div id="readme-top"></div>
 
-## GoblinKeys 1.0 is a minimalistic and retro by-design game, a responsive React application, for playing and training your typing abilities and creating custom games, which can be played by you and other users.
+<div align="center">
+  <a href="https://github.com/boyandmtrv/GoblinKeys-1.0">
+    <img src="client/public/img/goblinGit.png" alt="Logo" width="200" height="200">
+  </a>
 
-## Contents
-- [Tech Stack](#Tech-Stack)
-- [Libraries and Dependencies](#Libraries-and-Dependencies)
-- [Features](#Features)
-- [Play the Game](#Play-the-Game) 
-- [App Structure](#App-Structure)  
-- [Server Documentation](#Server-Documentation) 
-- [Run the App](#Run-the-App) 
-- [Screenshot](#Screenshots) 
+  <h1 align="center">Goblin Keys 1.0</h1>
 
-## Tech Stack
-### Front-end:
-  - React: Used for building the user interface and application functionalities.
-  - react-dom: DOM-specific methods for rendering React components.
-  - react-router-dom: Library for client-side navigation and routing.
-  - Vite: Modern build tool prioritizing speed.
-### Styling:
-  - Tailwind CSS: Utility-first CSS framework.
-  - Box icons - icons for UI usage
-  - INVASION2000 font - unique typeface selected or designed specifically for a project
-### External APIs:
-  - api.quotable.io: Used for generating random quotes.
-### Deployment
-  - Vercel: Hosting platform.
+  <p align="center">
+    Master your typing skills
+    <br />
+    <a href="https://github.com/boyandmtrv/GoblinKeys-1.0"><strong>Discover the docs</strong></a>
+  </p>
+</div>
 
-## Libraries and Dependencies
-- react-spring - React library that provides a set of simple, expressive, and high-performance animations for React applications
-- react-toastify - React library used for displaying notifications (toasts) in web applications
-- lucide-react - Implementation of the lucide icon library for react applications
-- random-words - JavaScript library that generates random English words. 
-- react-simple-typewriter - used for typewriter-like text animations.
-- tailwind-scrollbar - tailwindCSS plugin for styling scrollbars.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+        <li><a href="#built-with">Built With</a></li>
+    </li>
+        <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## Features
-### Non-Logged-In Users / Guest users:
-- Provided access to the Home page
-- Access to the About page
-- Register / Login 
-  - Login - sign in with their email and password
-  - Register - Create a new account by filling needed fields
-- Distributed access to the dashboard page, in which the guests can find created games by authenticated users and their corresponding details:
-  - Game info on the dashboard page:
-    - Game title
-    - Difficulty level
-    - Time in seconds
-  - Game info for the chosen game 
-    - Game title
-    - Game words/sentences/quotes or whatever the authenticated user has written
-    - Difficulty level
-    - Time in seconds
+## About The Project
+![goblinGitBg](https://github.com/boyandmtrv/GoblinKeys-1.0/assets/122356573/355b0166-8654-4045-a44a-6f6dc0a04f6b)
 
-### Logged-in-Users / Registered Users:
-- All features provided for the guest users
-- Welcome page - greets the user each time he is logged in / registered in the app
-- Game feature - the user can play the main typing game unlimited times
-- Create a game - the user can create its own custom game, in which he /she can set:
-  - Custom text/quote/sentence/words or something else, it is truly based on the user's choice
-  - Option/button for generating random sentence
-  - Option/button for generating a random quote
-  - Game title
-  - Level of difficulty
-  - Time in seconds
-  - Create / Cancel options
-- Test its own game - the user would be able to test his / her creation and choose if he/she wants to change it by using the written below options
-- Edit game functionality - the personnel can edit it's own game with all of the top options manageable to be changed
-- Delete his own game
-- Test other user's game
-  - Each user is fortunate to test unlimited times other user's games
+GoblinKeys 1.0 stands as a unique and retro-inspired React application, meticulously designed to serve as both a platform for refining your typing skills and a creative outlet for crafting custom typing games. Whether you're looking to enhance your speed and accuracy or engage in a community-driven gaming experience, GoblinKeys 1.0 has you covered.
+
+Why GoblinKeys 1.0?
+* Gameplay Dynamics:
+  * Personalized Options: Tailor your gameplay with customizable settings, from duration to sentence generation and difficulty levels.
+  * Immersive Typing: Immerse yourself in the typing experience with highlighted words, real-time error feedback, and a       visible cursor guiding you through each keystroke.
+* Test Results and Interaction:
+  * Comprehensive Feedback: After each test, receive detailed results including correct and incorrect words, accuracy           percentage, and words per minute calculation.
+  * User-Centric Messages: Personalized messages based on your accuracy rate guide you toward improvement and encourage       ongoing skill development.
+  * Refresh or Retake: Choose to refresh the test for a new set of words or retake it to further refine your typing           abilities.
+* Features:
+  * Personalized Welcome: Enjoy a warm greeting on the Welcome Page upon every login, setting the tone for an engaging user   experience.
+  * Master the Main Game: Dive into the main typing game, with unlimited plays available for users to sharpen their typing      prowess.
+  * Craft Your Game: Unleash your creativity by designing custom games. Define the text, toggle random sentence or quote        generation, set difficulty levels, and determine time constraints.
+  * Fine-Tune Your Creations: Test and edit your own games, or opt to remove them entirely. The power to shape and refine       your creations is in your hands.
+  * Community Engagement: Explore and test unlimited games crafted by fellow users, fostering a sense of community within       the GoblinKeys environment. <br />
+  
+Embark on your typing journey with GoblinKeys 1.0, where skill-building and creativity converge in a user-centric and retro-themed environment.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+[![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&colorA=232F3E&colorB=232F3E)](https://react.dev/) <br/>
+[![React Router](https://img.shields.io/badge/React%20Router-%23CA4245.svg?style=for-the-badge&logo=react-router&logoColor=%2361DAFB&colorA=232F3E&colorB=232F3E)](https://reactrouter.com/) <br/>
+[![API](https://img.shields.io/badge/API-%23008080.svg?style=for-the-badge&colorA=232F3E&colorB=232F3E)](https://github.com/lukePeavey/quotable) <br />
+[![random-words](https://img.shields.io/badge/random--words-%23008080.svg?style=for-the-badge&logo=npm&colorB=232F3E)](https://www.npmjs.com/package/random-words) <br />
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%231a202c.svg?style=for-the-badge&logo=tailwind-css&logoColor=%16BECB&colorA=232F3E&colorB=232F3E)](https://tailwindcss.com/) <br/>
+[![tailwind-scrollbar](https://img.shields.io/badge/tailwind--scrollbar-%231572B6.svg?style=for-the-badge&logo=tailwind-css&logoColor=%16BECB&colorB=232F3E)](https://www.npmjs.com/package/tailwind-scrollbar) <br />
+[![React Icons](https://img.shields.io/badge/React%20Icons-%23000000.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&colorA=232F3E&colorB=232F3E)](https://react-icons.github.io/react-icons/) <br />
+[![lucide-react](https://img.shields.io/badge/lucide--react-%23008080.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&colorA=232F3E&colorB=232F3E)](https://www.npmjs.com/package/lucide-react) <br />
+[![react-simple-typewriter](https://img.shields.io/badge/react--simple--typewriter-%23008080.svg?style=for-the-badge&logo=react&colorA=232F3E&colorB=232F3E)](https://www.npmjs.com/package/react-simple-typewriter) <br />
+[![react-spring](https://img.shields.io/badge/react--spring-%2361DAFB.svg?style=for-the-badge&logo=react&colorA=232F3E&colorB=232F3E)](https://www.npmjs.com/package/react-spring) <br />
+[![react-toastify](https://img.shields.io/badge/react--toastify-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&colorA=232F3E&colorB=232F3E)](https://www.npmjs.com/package/react-toastify) <br />
+[![Box icons](https://img.shields.io/badge/Box%20icons-%23008080.svg?style=for-the-badge&logo=box&logoColor=white&colorA=232F3E&colorB=232F3E)](https://boxicons.com/) <br />
+[![Vite](https://img.shields.io/badge/Vite-%23000000.svg?style=for-the-badge&logo=vite&logoColor=%7B87FF&colorA=232F3E&colorB=232F3E)](https://vitejs.dev/) <br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started
+
+To get a local copy, follow these steps:
+  
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/boyandmtrv/GoblinKeys-1.0.git
+   ```
+2. Install NPM packages in the client's folder
+   ```sh
+   cd .\client\
+   ```
+   ```sh
+   npm install
+   ```
+3. Install NPM packages in the server's folder
+   ```sh
+   cd .\server\
+   ```
+   ```sh
+   npm install
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Usage
+
+### Run the server
+1. Open a new terminal and enter the server folder
+   ```sh
+   cd .\server\
+   ```
+2. Run the back-end application
+   ```sh
+   node .\server.js
+   ```
+   *If eveything is fine you will receive the following message in the terminal:
+   Server started on port 3030. You can make requests to http://localhost:3030/*
+
+   Note: <br />
+   *If you need to customize the server or client configurations, refer to the respective server.js and client/package.json     files.*
 
 
-## Play the Game
-Each user is privileged play the main typing game 
-### Options:
-  - Depending on the user's choice, the user can choose how long the test will continue, by selecting the seconds option
-  - Easily generating new sentences, by his / her preferences
-  - Switching between difficulty levels - each level has different words, which are dynamically changed and progressively harder.
-### Game Typing Dynamics
-  - Each word is highlighted to make it easy for the user to follow along.
-  - If a character is misspelled, the entire word turns red, highlighting the error.
-  - A cursor follows each letter as the user types, providing a visual guide.
-    
-### Ending test screen - displaying the following results, when the time in seconds ends:
-  - Correct and Incorrect words
-  - Percentage of accuracy
-  - Words Per Minute Calculation
-  - Depending on the user's accuracy rate, he/she will receive a relevant message.
-  - Refresh the test - it will generate brand new words and the user will be redirected to the main gameplay page
-  - Re-take the test - the user has unlimited tries for the test, to improve and train their typing skills.
+### Run the app
+1. Open a new terminal and enter the client folder
+   ```sh
+    cd .\client\
+   ```
+2. Run the front-end application
+   ```sh
+   npm run dev
+   ```
+   *To open the application locally, enter the following url in the browser field: http://localhost:5173/ or use CTRL + left click in the terminal box*
 
-## App structure
-### App.JSX: The main React component for the application.
- - Components: Contains various React components for different sections of the application.
- - Contexts: Holds the AuthContext for managing user authentication.
- - Game: Includes components related to the game functionality.
- - Guards: Contains the AuthGuard for protecting routes that require authentication.
- - Paths: Defines paths for routing.
- - Errors: Includes an ErrorBoundary for handling errors gracefully.
-### index.css
-- Stylesheet for the application, with tailiwindCSS used.
-### index.html
-- HTML file where the React app is mounted.
-### main.js
-- The HTML file where the React app is mounted.
+You can also check out the live version of Huddle by clicking [here](https://goblinkeys.vercel.app/)
 
-## Server Documentation
-- REST service, created for educational purposes. A compiled bundle should be available with every exercise's resources. To execute it, run the included start.bat file, or manually open a command prompt and run node server.js.
 
-## Run the App
-1. Start the Server
-- Open a terminal and navigate to the server directory:
-cd server
-- Run the server using Node.js:
-node server.js
-  - This will start the server, and it will be accessible at the specified port.
-
-2.  Start the Client
-- Open a new terminal and navigate to the client directory:
-cd client
-- Install the client dependencies:
-npm install
-- Run the development server:
-npm run dev
-  - Now you have both the server and client running concurrently. You can access the application in your web browser.
-
-Note:
-Make sure that the necessary dependencies are installed before starting the client.
-If you need to customize the server or client configurations, refer to the respective server.js and client/package.json files.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
-- MIT License
 
-## Screenshots:
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/d2ac86c0-8675-4074-8b0f-91d23ce243b7)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/fbc350e3-7507-4ec1-9767-8ddacce12dda)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/8a635781-332d-4e0b-b0f4-40f8b9a08538)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/b42651cc-9bfc-40f0-b510-3a6c7b685578)
-![image](https://github.com/boyandmtrv/Clik/assets/122356573/26e8fd11-85e6-4f0f-a103-503c417fc7cf)
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/boyan-dimitrov-4402b4179/) <br />
+[![Gmail](https://img.shields.io/badge/Gmail-%23EA4335.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:boyandimitrov1462@gmail.com) <br />
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/boyandmtrv) <br />
 
 
 
